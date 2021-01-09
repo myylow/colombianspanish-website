@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "regen": "node src/wp-cache/update-wp-posts.js",
+    "analyze": "ANALYZE=true yarn build",
     "dev": "next dev",
     "eslint": "eslint . --ext .js,.jsx,.tsx,.ts --cache",
     "build": "next build",
