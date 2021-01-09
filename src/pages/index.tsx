@@ -62,13 +62,12 @@ const Index: NextPage<Props> = ({ posts }: Props) => {
             return <PostCard post={post} key={post.slug} />
           })}
         </div>
-        <div className="container mx-auto px-64 my-12 flex flex-row">
-          <div className="email-box flex-1 mx-8">
-            <EmailBox mailingListUrl="https://api.mailaxa.com/mailflow/L1vWbDoSk/subscriber" />
-          </div>
-          <div className="flex-1 mx-8">
-            <FacebookBox />
-          </div>
+        <div className="container mx-auto px-64 my-12 grid grid-cols-2 gap-16">
+          <EmailBox
+            accentColor="#36b3b3"
+            mailingListUrl="https://api.mailaxa.com/mailflow/L1vWbDoSk/subscriber"
+          />
+          <FacebookBox accentColor="#3b5998" />
         </div>
       </main>
     </>

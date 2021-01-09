@@ -4,6 +4,7 @@ import NextImage from 'next/image'
 
 interface Props {
   mailingListUrl: string
+  accentColor: string
 }
 interface State {
   firstName: string
@@ -101,17 +102,24 @@ class EmailBox extends React.Component<Props, State> {
 
   render() {
     return (
-      <aside>
-        <h4>7 day transformation</h4>
-        <div className="img-container">
+      <aside className="border border-gray-300 rounded-sm text-center relative shadow-lg pt-16 px-8">
+        <h4
+          className="text-xl uppercase font-semibold mb-8"
+          style={{ color: this.props.accentColor }}
+        >
+          7 day transformation
+        </h4>
+        <div className="bg-white left-0 right-0 mx-auto flex items-center justify-center absolute h-28 w-28 -top-14">
           <NextImage src="/components/homepage/emailbox-icon@2x.png" width="65" height="65" />
         </div>
-        <div className="description">
+        <div className="description px-4 text-left mb-8">
           Fast track from dull ‘textbook Spanish’ to sounding like a local with the free{' '}
           <b>Colombian Spanish Language Hacks</b> email course.
         </div>
         <form className="form">
-          <div className="label">Your first name</div>
+          <div className="label" style={{ color: this.props.accentColor }}>
+            Your first name
+          </div>
           <input
             type="text"
             required
@@ -119,7 +127,9 @@ class EmailBox extends React.Component<Props, State> {
             name="firstName"
             value={this.state.firstName}
           />
-          <div className="label">Your email</div>
+          <div className="label" style={{ color: this.props.accentColor }}>
+            Your email
+          </div>
           <input
             type="email"
             required
@@ -178,53 +188,13 @@ class EmailBox extends React.Component<Props, State> {
           </div>
         </form>
         <style jsx>{`
-          aside {
-            background: #ffffff;
-            border: 1px solid #cccccc;
-            box-shadow: 2px 20px 4px 0 rgba(155, 155, 155, 0.5);
-            border-radius: 5px;
-            padding: 60px 25px 30px;
-            text-align: center;
-            position: relative;
-            min-height: 518px;
-          }
-          .img-container {
-            background-color: white;
-            height: 100px;
-            width: 100px;
-            position: absolute;
-            top: -60px;
-            left: 0;
-            right: 0;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-          }
-
-          h4 {
-            font-size: 20px;
-            color: #36b3b3;
-            text-transform: uppercase;
-            font-weight: 600;
-            margin: 0 0 10px;
-          }
-          .description {
-            margin-bottom: 30px;
-            font-size: 18px;
-          }
           .form {
             text-align: left;
             display: inline-block;
             margin: auto;
             max-width: 100%;
           }
-          .label {
-            color: #36b3b3;
-            text-align: left;
-            display: block;
-          }
+
           input {
             text-align: left;
             padding: 10px 10px;
@@ -262,9 +232,6 @@ class EmailBox extends React.Component<Props, State> {
             color: red;
           }
           @media screen and (min-width: 320px) {
-            aside {
-              box-shadow: none;
-            }
             button {
               padding: 14px 30px;
             }
@@ -281,9 +248,6 @@ class EmailBox extends React.Component<Props, State> {
             }
           }
           @media screen and (min-width: 768px) {
-            aside {
-              box-shadow: 2px 3px 4px 0 rgba(155, 155, 155, 0.5);
-            }
             button {
               padding: 14px 50px;
             }
