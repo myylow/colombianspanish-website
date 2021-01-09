@@ -13,6 +13,7 @@
   "keywords": [],
   "author": "Michael Low (mikelow@gmail.com)",
   "dependencies": {
+    "@next/bundle-analyzer": "^10.0.5",
     "he": "^1.2.0",
     "html-to-react": "^1.4.5",
     "immer": "^8.0.0",
