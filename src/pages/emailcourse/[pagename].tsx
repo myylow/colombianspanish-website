@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import * as React from 'react'
 import Header from '../../components/layout/header'
 import fetchPage from '../../api/fetch-page'
+import PageTitle from '../../components/shared/page-title'
 
 interface Props {
   title: string
@@ -12,13 +13,10 @@ const AboutPage = ({ title, content }: Props) => {
   return (
     <>
       <Header buttonColor="red" />
+      <PageTitle title={title} />
+
       <section className="container">
-        <article className="" itemProp="mainEntityOfPage">
-          <div className="post-padding">
-            <h1 className="text-4xl font-bold">{title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: content }} />
-          </div>
-        </article>
+        <div className="py-4 text-xl text-gray-600" dangerouslySetInnerHTML={{ __html: content }} />
       </section>
     </>
   )

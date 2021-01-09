@@ -4,6 +4,7 @@ import fetchPosts, { PostSummary } from '../../../api/fetch-posts'
 import PostCard from '../../../components/shared/post-card'
 import Header from '../../../components/layout/header'
 import fetchCategory, { Category } from '../../../api/fetch-category'
+import PageTitle from '../../../components/shared/page-title'
 
 interface Props {
   posts: PostSummary[]
@@ -14,12 +15,7 @@ const CategoryListing: NextPage<Props> = ({ posts, category }: Props) => {
   return (
     <>
       <Header buttonColor="red" />
-
-      <section className="bg-gray-100 border border-l-0 border-r-0 border-gray-200">
-        <div className="container">
-          <h1 className="py-12 text-5xl font-light">{category.name}</h1>
-        </div>
-      </section>
+      <PageTitle title={category.name} />
       <div className="flex flex-wrap justify-center my-8">
         {posts.map((post) => {
           return <PostCard post={post} key={post.slug} />

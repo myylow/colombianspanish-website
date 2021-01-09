@@ -12,7 +12,7 @@ module.exports = {
     },
     {
       source: '/colombian-fiesta-slang',
-      destination: '/emailcourse//colombian-fiesta-slang',
+      destination: '/emailcourse/colombian-fiesta-slang',
       permanent: true,
     },
     {
