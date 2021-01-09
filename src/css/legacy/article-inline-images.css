@@ -1,0 +1,61 @@
+.article img.float-left {
+  float: left;
+  margin: 20px 20px 20px 10px;
+}
+.article img.float-right {
+  float: right;
+  margin: 20px 10px 20px 20px;
+}
+.article img.centered {
+  display: block;
+  margin: 20px auto;
+}
+
+.article img.rounded-corners {
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+@media screen and (min-width: 320px) {
+  .width-30,
+  .width-40,
+  .width-50,
+  .width-60,
+  .width-70,
+  .width-80 {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .width-30 {
+    width: 30%;
+  }
+
+  .width-40 {
+    width: 40%;
+  }
+
+  .width-45 {
+    width: 45%;
+  }
+
+  .width-50 {
+    width: 50%;
+  }
+
+  .width-55 {
+    width: 55%;
+  }
+
+  .width-60 {
+    width: 60%;
+  }
+
+  .width-70 {
+    width: 70%;
+  }
+
+  .width-80 {
+    width: 80%;
+  }
+}

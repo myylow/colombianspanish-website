@@ -1,0 +1,13 @@
+@layer components {
+  .faq-question {
+    @apply font-bold mb-2;
+  }
+
+  /* data keys */
+  .data-key {
+    @apply uppercase font-semibold text-base text-gray-400 text-center;
+  }
+  .data-value {
+    @apply text-center text-lg;
+  }
+}

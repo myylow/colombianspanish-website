@@ -1,0 +1,8 @@
+node_modules/
+.next/
+dist
+.vscode
+.eslintcache
+public/ebook
+public/studykit
+.env.local

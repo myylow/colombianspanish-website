@@ -1,0 +1,19 @@
+.faq {
+  margin: 0 0 40px;
+  position: relative;
+}
+.faq__question {
+  font-weight: bold;
+  font-size: 19px;
+  margin-right: 50px;
+  line-height: 1.25;
+  margin-bottom: 30px;
+  position: relative;
+  color: black;
+}
+.faq__answer {
+  padding-left: 10px;
+  padding-right: 20px;
+  margin-left: 10px;
+  position: relative;
+}

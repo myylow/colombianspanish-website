@@ -1,0 +1,188 @@
+/* material icons class */
+@layer utilities {
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+
+  /* social icons */
+
+  .icon-social {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    background-size: 22px 22px;
+    background-repeat: no-repeat;
+  }
+
+  .icon-social-large {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+  }
+
+  .icon-facebook {
+    background-image: url('/img/social/post-share-links/icon-facebook.png');
+  }
+
+  .icon-twitter {
+    background-image: url('/img/social/post-share-links/icon-twitter.png');
+  }
+
+  .icon-rss {
+    background-image: url('/img/social/post-share-links/icon-rss.png');
+  }
+
+  /* conversation icons */
+
+  .conversation.man1 .person {
+    background-image: url('/img/conversations/man1.svg');
+  }
+
+  .conversation.man2 .person {
+    background-image: url('/img/conversations/man2.svg');
+  }
+
+  .conversation.man3 .person {
+    background-image: url('/img/conversations/man3.svg');
+  }
+
+  .conversation.man4 .person {
+    background-image: url('/img/conversations/man4.svg');
+  }
+
+  .conversation.man5 .person {
+    background-image: url('/img/conversations/man5.svg');
+  }
+
+  .conversation.woman1 .person {
+    background-image: url('/img/conversations/woman1.svg');
+  }
+
+  .conversation.woman2 .person {
+    background-image: url('/img/conversations/woman2.svg');
+  }
+
+  .conversation.woman3 .person {
+    background-image: url('/img/conversations/woman3.svg');
+  }
+
+  .conversation.woman4 .person {
+    background-image: url('/img/conversations/woman4.svg');
+  }
+
+  .conversation.woman5 .person {
+    background-image: url('/img/conversations/woman5.svg');
+  }
+
+  /* school contact icons */
+  .contact-icon {
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: 30px 30px;
+  }
+  .contact-facebook {
+    background-image: url('/images/icons/flat/facebook.png');
+  }
+  .contact-email {
+    background-image: url('/images/icons/flat/message.png');
+  }
+  .contact-link {
+    background-image: url('/images/icons/flat/link.png');
+  }
+
+  /* course support icons */
+  .support-icon {
+    background-repeat: no-repeat;
+    background-position: 0px center;
+  }
+  .support-email {
+    background-image: url('/components/course/support-email.png');
+  }
+  .support-social {
+    background-image: url('/components/course/support-social.png');
+  }
+  .support-feedback {
+    background-image: url('/components/course/support-feedback.png');
+  }
+
+  /* prevent next image adding padding due to inline-block */
+  .next-image-wrapper {
+    letter-spacing: 0;
+    word-spacing: 0;
+    font-size: 0;
+  }
+
+  /* lesson types  */
+
+  .lesson-icon {
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: 0 center;
+  }
+  .lesson-video {
+    background-image: url('/components/course/lesson-video.png');
+  }
+  .lesson-quiz {
+    background-image: url('/components/course/lesson-quiz.png');
+  }
+  .lesson-text {
+    background-size: 20px 25px;
+    background-position: 1px center;
+    background-image: url('/components/course/lesson-text.png');
+  }
+
+  /* filter */
+  .filter-grayscale {
+    filter: grayscale(100%);
+  }
+
+  /* override gumroad styling */
+  .no-gumroad {
+    background: none !important;
+    color: #fff !important;
+    font-size: 19px !important;
+    text-shadow: none !important;
+    display: inline-block !important;
+    border: 0 !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    line-height: normal !important;
+    padding: 0 !important;
+  }
+  .no-gumroad .gumroad-button-logo {
+    display: none !important;
+  }
+
+  /* first letter uppercase */
+  .first-letter-uppercase:first-letter {
+    text-transform: uppercase;
+  }
+}

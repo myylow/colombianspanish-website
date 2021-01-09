@@ -1,0 +1,115 @@
+/* add our custom base styles */
+
+/* @font-face rules */
+@layer base {
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/sourcesanspro/SourceSansPro-Regular.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: 400;
+    src: url('/fonts/sourcesanspro/SourceSansPro-It.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 300;
+    src: url('/fonts/sourcesanspro/SourceSansPro-Light.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-style: italic;
+    font-weight: 300;
+    src: url('/fonts/sourcesanspro/SourceSansPro-LightIt.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    src: url('/fonts/sourcesanspro/SourceSansPro-Semibold.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/sourcesanspro/SourceSansPro-Bold.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 900;
+    src: url('/fonts/sourcesanspro/SourceSansPro-Black.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Bree Serif';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/breeserif-regular.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'), local('MaterialIcons-Regular'),
+      url('/fonts/MaterialIcons-Regular.woff2') format('woff2');
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    touch-action: manipulation;
+    @apply font-ssp;
+  }
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: left;
+    @apply font-ssp;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  a {
+    @apply text-red-600 hover:text-red-800;
+  }
+
+  p {
+    margin: 32px 0;
+    line-height: 1.6;
+  }
+
+  q::before,
+  q::after {
+    display: none;
+  }
+
+  input {
+    @apply py-2 px-4 rounded-sm border border-gray-300;
+  }
+
+  .excerpt p {
+    margin: 0px 0;
+  }
+  .excerpt p:first-child {
+    margin-top: 0;
+  }
+}
