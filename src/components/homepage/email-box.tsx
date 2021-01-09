@@ -1,304 +1,163 @@
 import * as React from 'react'
 import superagent from 'superagent'
 import NextImage from 'next/image'
+import Button from '../design-system/button/button'
+import { useState } from 'react'
 
 interface Props {
   mailingListUrl: string
   accentColor: string
 }
-interface State {
-  firstName: string
-  email: string
-  subscribeResult: string
-  buttonStatus: string
-}
 
-class EmailBox extends React.Component<Props, State> {
-  state = {
-    firstName: '',
-    email: '',
-    subscribeResult: 'ready',
-    buttonStatus: 'ready',
+const EmailBox = ({ mailingListUrl, accentColor }: Props) => {
+  const [firstName, setFirstName] = useState('')
+  const [email, setEmail] = useState('')
+  const [subscribeResult, setSubscribeResult] = useState('ready')
+  const [buttonStatus, setButtonStatus] = useState('ready')
+
+  const handleNameChange = (event) => {
+    setFirstName(event.target.value)
+  }
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value)
   }
 
-  handleNameChange = (event) => {
-    this.setState({
-      firstName: event.target.value,
-    })
-  }
-  handleEmailChange = (event) => {
-    this.setState({
-      email: event.target.value,
-    })
-  }
-
-  handleButtonClick = async (event) => {
+  const handleButtonClick = async (event: React.MouseEvent) => {
     event.preventDefault()
 
     var requestData = {
-      email: this.state.email,
-      firstName: this.state.firstName,
+      email: email,
+      firstName: firstName,
     }
 
-    if (this.state.email.trim() === '') {
-      this.setState({
-        subscribeResult: 'no-email',
-      })
+    if (email.trim() === '') {
+      setSubscribeResult('no-email')
       return
     }
 
-    if (this.state.firstName.trim() === '') {
-      this.setState({
-        subscribeResult: 'no-first-name',
-      })
+    if (firstName.trim() === '') {
+      setSubscribeResult('no-first-name')
       return
     }
 
     // Proceed with request
 
-    this.setState({
-      buttonStatus: 'sending',
-      subscribeResult: 'ready',
-    })
+    setButtonStatus('sending')
+    setSubscribeResult('ready')
 
     try {
-      await superagent.post(this.props.mailingListUrl).send(requestData).timeout({
+      await superagent.post(mailingListUrl).send(requestData).timeout({
         response: 3500,
         deadline: 3500,
       })
-      this.setState({
-        buttonStatus: 'sent',
-      })
-      this.setState({
-        subscribeResult: 'success',
-      })
-      //  this.setMailingListCookie();
+      setButtonStatus('sent')
+      setSubscribeResult('success')
     } catch (error) {
-      this.setState({
-        buttonStatus: 'ready',
-      })
+      setButtonStatus('ready')
       try {
         var code = JSON.parse(error.response.text).code
         if (code == 214) {
-          this.setState({
-            subscribeResult: 'already-signedup',
-          })
+          setSubscribeResult('already-signedup')
         } else if (code == -100) {
-          this.setState({
-            subscribeResult: 'no-email',
-          })
+          setSubscribeResult('no-email')
         } else {
-          this.setState({
-            subscribeResult: 'general-error',
-          })
+          setSubscribeResult('general-error')
         }
       } catch (e) {
-        this.setState({
-          subscribeResult: 'general-error',
-        })
+        setSubscribeResult('general-error')
       }
     }
   }
 
-  render() {
-    return (
-      <aside className="border border-gray-300 rounded-sm text-center relative shadow-lg pt-16 px-8">
-        <h4
-          className="text-xl uppercase font-semibold mb-8"
-          style={{ color: this.props.accentColor }}
+  return (
+    <aside className="border border-gray-300 rounded-sm text-center relative shadow-lg pt-16 px-8">
+      <h4 className="text-xl uppercase font-semibold mb-4" style={{ color: accentColor }}>
+        7 day transformation
+      </h4>
+      <div className="bg-white left-0 right-0 mx-auto flex items-center justify-center absolute h-28 w-28 -top-14">
+        <NextImage src="/components/homepage/emailbox-icon@2x.png" width="65" height="65" />
+      </div>
+      <div className="text-gray-600 text-lg px-4 text-left mb-8">
+        Fast track from dull ‘textbook Spanish’ to sounding like a local with the free{' '}
+        <b>Colombian Spanish Language Hacks</b> email course.
+      </div>
+      <form className="text-left mx-auto inline-block">
+        <div className="mb-2" style={{ color: accentColor }}>
+          Your first name
+        </div>
+        <input
+          className="w-60"
+          type="text"
+          required
+          onChange={handleNameChange}
+          name="firstName"
+          value={firstName}
+        />
+        <div className="mt-4 mb-2" style={{ color: accentColor }}>
+          Your email
+        </div>
+        <input
+          className="w-60"
+          type="email"
+          required
+          onChange={handleEmailChange}
+          name="email"
+          value={email}
+        />
+        <Button
+          bgColor="turquoise"
+          size="md"
+          onClick={handleButtonClick}
+          disabled={buttonStatus == 'sending' || buttonStatus == 'sent'}
+          className={'block mt-8 ' + buttonStatus}
         >
-          7 day transformation
-        </h4>
-        <div className="bg-white left-0 right-0 mx-auto flex items-center justify-center absolute h-28 w-28 -top-14">
-          <NextImage src="/components/homepage/emailbox-icon@2x.png" width="65" height="65" />
+          {buttonStatus == 'ready' && <span>Send me the course</span>}
+          {buttonStatus == 'sending' && <span>Sending...</span>}
+          {buttonStatus == 'sent' && <span>✓ Email sent</span>}
+        </Button>
+        <div
+          className={
+            'subscribe-result cs-chapter-promo__confirmation ' +
+            (subscribeResult == 'success' ? '' : 'hidden')
+          }
+        >
+          Thanks! You&apos;ve subscribed succesfully. Please check your email to find our more.
         </div>
-        <div className="description px-4 text-left mb-8">
-          Fast track from dull ‘textbook Spanish’ to sounding like a local with the free{' '}
-          <b>Colombian Spanish Language Hacks</b> email course.
+        <div
+          className={
+            'subscribe-result js-error-already-signedup ' +
+            (subscribeResult == 'already-signedup' ? 'fail' : 'hidden')
+          }
+        >
+          Sorry, your email address has already signed up.
         </div>
-        <form className="form">
-          <div className="label" style={{ color: this.props.accentColor }}>
-            Your first name
-          </div>
-          <input
-            type="text"
-            required
-            onChange={this.handleNameChange}
-            name="firstName"
-            value={this.state.firstName}
-          />
-          <div className="label" style={{ color: this.props.accentColor }}>
-            Your email
-          </div>
-          <input
-            type="email"
-            required
-            onChange={this.handleEmailChange}
-            name="email"
-            value={this.state.email}
-          />
-          <button
-            onClick={this.handleButtonClick}
-            disabled={this.state.buttonStatus == 'sending' || this.state.buttonStatus == 'sent'}
-            className={'g-turquoise-button ' + this.state.buttonStatus}
-          >
-            {this.state.buttonStatus == 'ready' && <span>Send me the course</span>}
-            {this.state.buttonStatus == 'sending' && <span>Sending...</span>}
-            {this.state.buttonStatus == 'sent' && <span>✓ Email sent</span>}
-          </button>
-          <div
-            className={
-              'subscribe-result cs-chapter-promo__confirmation ' +
-              (this.state.subscribeResult == 'success' ? '' : 'hidden')
-            }
-          >
-            Thanks! You&apos;ve subscribed succesfully. Please check your email to find our more.
-          </div>
-          <div
-            className={
-              'subscribe-result js-error-already-signedup ' +
-              (this.state.subscribeResult == 'already-signedup' ? 'fail' : 'hidden')
-            }
-          >
-            Sorry, your email address has already signed up.
-          </div>
-          <div
-            className={
-              'subscribe-result js-error-no-email ' +
-              (this.state.subscribeResult == 'no-email' ? 'fail' : 'hidden')
-            }
-          >
-            Please enter a valid email address.
-          </div>
-          <div
-            className={
-              'subscribe-result js-error-no-first-name ' +
-              (this.state.subscribeResult == 'no-first-name' ? 'fail' : 'hidden')
-            }
-          >
-            Please enter your first name.
-          </div>
-          <div
-            className={
-              'subscribe-result js-general-error ' +
-              (this.state.subscribeResult == 'general-error' ? 'fail' : 'hidden')
-            }
-          >
-            We&apos;re sorry, an error occured. Please try again later.
-          </div>
-        </form>
-        <style jsx>{`
-          .form {
-            text-align: left;
-            display: inline-block;
-            margin: auto;
-            max-width: 100%;
+        <div
+          className={
+            'subscribe-result js-error-no-email ' +
+            (subscribeResult == 'no-email' ? 'fail' : 'hidden')
           }
-
-          input {
-            text-align: left;
-            padding: 10px 10px;
-            max-width: 100%;
-            margin: 0 0 25px;
-            font-size: 18px;
-            border: 1px solid #999;
-            display: block;
-            width: 220px;
+        >
+          Please enter a valid email address.
+        </div>
+        <div
+          className={
+            'subscribe-result js-error-no-first-name ' +
+            (subscribeResult == 'no-first-name' ? 'fail' : 'hidden')
           }
-          input:last-of-type {
-            margin-bottom: 35px;
+        >
+          Please enter your first name.
+        </div>
+        <div
+          className={
+            'subscribe-result js-general-error ' +
+            (subscribeResult == 'general-error' ? 'fail' : 'hidden')
           }
-          button {
-            display: block;
-            padding: 14px 60px;
-            box-shadow: none;
-            margin: 0 auto 0;
-          }
-          button:disabled,
-          button[disabled] {
-            background-color: #cccccc;
-            color: #666666;
-            box-shadow: none;
-            cursor: auto;
-          }
-          .subscribe-result {
-            padding: 20px 0 0;
-            color: blue;
-            max-width: 250px;
-            margin: auto;
-            text-align: center;
-          }
-          .subscribe-result.fail {
-            color: red;
-          }
-          @media screen and (min-width: 320px) {
-            button {
-              padding: 14px 30px;
-            }
-            .description {
-              font-size: 16px;
-            }
-            input {
-              width: 220px;
-            }
-          }
-          @media screen and (min-width: 360px) {
-            input {
-              width: 250px;
-            }
-          }
-          @media screen and (min-width: 768px) {
-            button {
-              padding: 14px 50px;
-            }
-            .description {
-              font-size: 18px;
-            }
-            input {
-              width: 250px;
-            }
-          }
-          @media screen and (min-width: 1024px) {
-            input {
-              width: 300px;
-            }
-            button {
-              padding: 14px 60px;
-            }
-          }
-        `}</style>
-      </aside>
-    )
-  }
+        >
+          We&apos;re sorry, an error occured. Please try again later.
+        </div>
+      </form>
+    </aside>
+  )
 }
 
 export default EmailBox
-
-/*
-
-        .g-turquoise-button {
-          background: #36b3b3;
-          border-radius: 10px;
-          font-family: 'Source Sans Pro';
-          font-weight: 600;
-          font-size: 16px;
-          color: #ffffff;
-          text-transform: uppercase;
-          border: none;
-          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-          transition: background-color 0.3s;
-          cursor: pointer;
-          border: 0;
-        }
-        .g-turquoise-button:focus,
-        .g-turquoise-button:active {
-          outline: 0;
-        }
-        .g-turquoise-button:hover {
-          background: #2e9999;
-        }
-        .g-turquoise-button:active {
-          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
-        }
-
-        */

@@ -3,6 +3,8 @@ module.exports = {
   variants: {
     extend: {
       margin: ['first'],
+      opacity: ['disabled'],
+      cursor: ['disabled'],
     },
   },
   theme: {

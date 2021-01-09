@@ -64,8 +64,8 @@ const Index: NextPage<Props> = ({ posts }: Props) => {
         </div>
         <div className="container mx-auto px-64 my-12 grid grid-cols-2 gap-16">
           <EmailBox
-            accentColor="#36b3b3"
-            mailingListUrl="https://api.mailaxa.com/mailflow/L1vWbDoSk/subscriber"
+            accentColor="#0fb981"
+            mailingListUrl={process.env.NEXT_PUBLIC_EMAIL_COURSE_SIGNUP_ENDPOINT}
           />
           <FacebookBox accentColor="#3b5998" />
         </div>
