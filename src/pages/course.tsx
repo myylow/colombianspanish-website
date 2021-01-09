@@ -7,7 +7,7 @@ import BonusMaterials from '../components/course-sales-page/bonus-materials'
 import CourseSyllabus from '../components/course-sales-page/course-syllabus'
 import GetStartedNow from '../components/course-sales-page/get-started-now'
 import Faq from '../components/course-sales-page/faq'
-import CourseHeader from '../components/layout/header'
+import CourseHeader from '../components/shared/header'
 import { useEffect, useState } from 'react'
 import Button from '../components/design-system/button/button'
 

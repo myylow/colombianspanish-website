@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Head from 'next/head'
-import Header from '../components/layout/header'
+import Header from '../components/shared/header'
 import EmailBox from '../components/homepage/email-box'
 import FacebookBox from '../components/homepage/facebook-box'
 import { GetStaticProps, NextPage } from 'next'

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Head from 'next/head'
 import { convertWpHtmlToJsx } from '../../lib/wordpress/jsx-converter'
-import Header from '../../components/layout/header'
+import Header from '../../components/shared/header'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import fetchPost, { Post } from '../../api/fetch-post'
 import { useEffect } from 'react'

@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import * as React from 'react'
-import Header from '../../components/layout/header'
+import Header from '../../components/shared/header'
 import fetchPage from '../../api/fetch-page'
 import PageTitle from '../../components/shared/page-title'
 

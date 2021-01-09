@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 import * as React from 'react'
 import fetchPosts, { PostSummary } from '../api/fetch-posts'
-import Header from '../components/layout/header'
+import Header from '../components/shared/header'
 import PageTitle from '../components/shared/page-title'
 import PostCard from '../components/shared/post-card'
 
