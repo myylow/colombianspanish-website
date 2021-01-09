@@ -19,6 +19,7 @@
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.4",
     "next": "^10.0.4",
+    "next-seo": "^4.17.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-waypoint": "^9.0.3",
