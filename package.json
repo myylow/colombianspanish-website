@@ -22,8 +22,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-waypoint": "^9.0.3",
-    "superagent": "^3.8.2",
-    "wpapi": "^1.1.2"
+    "superagent": "^3.8.2"
   },
   "devDependencies": {
     "@types/he": "^1.1.1",

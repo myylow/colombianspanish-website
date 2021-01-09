@@ -62,7 +62,7 @@ const fetchPost = async (slug: string): Promise<Post> => {
 
   // Get related posts
   const categoryIds = categories.map((c) => c.id)
-  const allRelatedPosts = await fetchPosts(categoryIds)
+  const allRelatedPosts = await fetchPosts({ categories: categoryIds })
   const relatedPosts = sampleSize(allRelatedPosts, 2)
 
   const post: Post = {

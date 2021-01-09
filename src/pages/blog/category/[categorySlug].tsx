@@ -17,7 +17,7 @@ const CategoryListing: NextPage<Props> = ({ posts, category }: Props) => {
 
       <section className="bg-gray-100 border border-l-0 border-r-0 border-gray-200">
         <div className="container">
-          <h1 className="py-16 text-5xl font-light">{category.name}</h1>
+          <h1 className="py-12 text-5xl font-light">{category.name}</h1>
         </div>
       </section>
       <div className="flex flex-wrap justify-center my-8">
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   }
 
   const category = await fetchCategory(categorySlug)
-  const posts = await fetchPosts([category.id])
+  const posts = await fetchPosts({ categories: [category.id] })
   return { props: { category, posts } }
 }
 

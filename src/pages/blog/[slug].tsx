@@ -125,7 +125,7 @@ const BlogPost = ({ post }: Props) => {
               </div>
             </header>
 
-            <div className="container px-96 mt-12 text-xl text-gray-600">{content}</div>
+            <div className="max-w-2xl mx-auto mt-12 text-xl text-gray-600">{content}</div>
 
             <div className="flex flex-wrap justify-center">
               {post.relatedPosts.map((it) => {

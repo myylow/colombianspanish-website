@@ -8,9 +8,16 @@ export interface PostSummary {
   title: string
 }
 
-const fetchPosts = async (categories: number[] = []): Promise<PostSummary[]> => {
+interface Options {
+  categories?: number[]
+  searchTerm?: string
+}
+
+const fetchPosts = async ({ categories = [], searchTerm = '' }: Options = {}): Promise<
+  PostSummary[]
+> => {
   const categoriesText = categories.join(',')
-  const url = `${process.env.WORDPRESS_ENDPOINT}/posts?per_page=50&categories=${categoriesText}`
+  const url = `${process.env.WORDPRESS_ENDPOINT}/posts?per_page=50&categories=${categoriesText}&search=${searchTerm}`
   const response = await fetch(url)
   const rawPosts = (await response.json()) as PostResponse[]
 
