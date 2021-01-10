@@ -2,43 +2,31 @@ import * as React from 'react'
 import NextImage from 'next/image'
 import Button from '../design-system/button/button'
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import postMailingListSignup from '../../api/post-mailing-list-signup'
+import Input from '../design-system/input/input'
 
 interface Props {
   accentColor: string
 }
 
+interface FormValues {
+  email: string
+  firstName: string
+}
+
 const EmailBox = ({ accentColor }: Props) => {
-  const [firstName, setFirstName] = useState('')
-  const [email, setEmail] = useState('')
   const [subscribeResult, setSubscribeResult] = useState('ready')
   const [buttonStatus, setButtonStatus] = useState('ready')
+  const { register, handleSubmit } = useForm<FormData>()
 
-  const handleNameChange = (event) => {
-    setFirstName(event.target.value)
-  }
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value)
-  }
-
-  const handleButtonClick = async (event: React.MouseEvent) => {
-    event.preventDefault()
-
-    if (email.trim() === '') {
-      setSubscribeResult('no-email')
-      return
-    }
-
-    if (firstName.trim() === '') {
-      setSubscribeResult('no-first-name')
-      return
-    }
+  const handleFormSubmit = async (formValues: FormValues) => {
+    const { email, firstName } = formValues
 
     // Proceed with request
 
     setButtonStatus('sending')
     setSubscribeResult('ready')
-
     try {
       await postMailingListSignup(email, firstName)
       setButtonStatus('sent')
@@ -72,33 +60,27 @@ const EmailBox = ({ accentColor }: Props) => {
         Fast track from dull ‘textbook Spanish’ to sounding like a local with the free{' '}
         <b>Colombian Spanish Language Hacks</b> email course.
       </div>
-      <form className="text-left mx-auto inline-block">
+      <form className="text-left mx-auto inline-block" onSubmit={handleSubmit(handleFormSubmit)}>
         <div className="mb-2" style={{ color: accentColor }}>
           Your first name
         </div>
-        <input
-          className="w-60"
+        <Input
           type="text"
-          required
-          onChange={handleNameChange}
           name="firstName"
-          value={firstName}
+          ref={register({ required: true, setValueAs: (val: string) => val.trim() })}
         />
         <div className="mt-4 mb-2" style={{ color: accentColor }}>
           Your email
         </div>
-        <input
-          className="w-60"
+        <Input
           type="email"
-          required
-          onChange={handleEmailChange}
           name="email"
-          value={email}
+          ref={register({ required: true, setValueAs: (val: string) => val.trim() })}
         />
+
         <Button
           bgColor="turquoise"
           size="md"
-          onClick={handleButtonClick}
           disabled={buttonStatus == 'sending' || buttonStatus == 'sent'}
           className={'block mt-8 ' + buttonStatus}
         >

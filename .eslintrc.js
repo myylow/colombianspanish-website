@@ -23,6 +23,7 @@ const config = {
     'no-unused-vars': 'off',
     'no-use-before-define': 'off',
     'no-useless-constructor': 'off',
+    'react/prop-types': 'off',
 
     // add extra TS specific rules
     '@typescript-eslint/no-inferrable-types': 'error',
