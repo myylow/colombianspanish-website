@@ -25,38 +25,6 @@
         "source": "/mypurchases/*/colombian-spanish-flashcards",
         "function": "downloadFlashcards"
       }
-    ],
-    "redirects": [
-      {
-        "source": "/ebook",
-        "destination": "/course",
-        "type": 301
-      },
-      {
-        "source": "/videocourse",
-        "destination": "https://course.colombianspanish.co/p/conversational-spanish-for-colombia",
-        "type": 301
-      },
-      {
-        "source": "/studykit",
-        "destination": "https://gum.co/colombianspanishstudykit",
-        "type": 301
-      },
-      {
-        "source": "/tag/where-to-study",
-        "destination": "/where-to-study",
-        "type": 301
-      },
-      {
-        "source": "/tag/what-to-study",
-        "destination": "/what-to-study",
-        "type": 301
-      },
-      {
-        "source": "/tag/how-to-study",
-        "destination": "/how-to-study",
-        "type": 301
-      }
     ]
   }
 }
