@@ -70,6 +70,10 @@ const blogPageRedirects = oldBlogPageSlugs.map((slug) => ({
   permanent: true,
 }))
 
+const CF_DOMAIN = process.env.CF_DOMAIN
+
+console.log('url', `${CF_DOMAIN}/download-ebook-epub?subscriberId=:id`)
+
 module.exports = withBundleAnalyzer({
   images: {
     domains: ['colombianspanishblog.files.wordpress.com'],
@@ -129,6 +133,28 @@ module.exports = withBundleAnalyzer({
       source: '/colombian-culture',
       destination: '/blog/perplexing-mystery-of-colombian-culture',
       permanent: true,
+    },
+
+    /* legacy my purchase urls */
+    {
+      source: '/mypurchases/:id/colombian-spanish-ebook-kindle',
+      destination: `${CF_DOMAIN}/download-ebook-kindle?subscriberId=:id`,
+      permanent: false,
+    },
+    {
+      source: '/mypurchases/:id/colombian-spanish-ebook-epub',
+      destination: `${CF_DOMAIN}/download-ebook-epub?subscriberId=:id`,
+      permanent: false,
+    },
+    {
+      source: '/mypurchases/:id/colombian-spanish-ebook-pdf',
+      destination: `${CF_DOMAIN}/download-ebook-pdf?subscriberId=:id`,
+      permanent: false,
+    },
+    {
+      source: '/mypurchases/:id/colombian-spanish-flashcards',
+      destination: `${CF_DOMAIN}/download-flashcards?subscriberId=:id`,
+      permanent: false,
     },
   ],
 })
