@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import postMailingListSignup from '../api/post-mailing-list-signup'
+import postMailingListSignup from '../http/post-mailing-list-signup'
 
 type SubscribeResult = 'ready' | 'success' | 'already-signedup' | 'general-error'
 

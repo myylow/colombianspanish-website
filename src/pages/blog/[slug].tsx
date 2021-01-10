@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { convertWpHtmlToJsx } from '../../cms/jsx-converter'
 import Header from '../../shared-components/header'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import fetchPost, { Post } from '../../api/fetch-post'
+import fetchPost, { Post } from '../../http/fetch-post'
 import { useEffect } from 'react'
 import PostCard from '../../shared-components/post-card'
 

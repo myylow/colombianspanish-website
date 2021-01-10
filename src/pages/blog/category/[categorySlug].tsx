@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import * as React from 'react'
-import fetchPosts, { PostSummary } from '../../../api/fetch-posts'
+import fetchPosts, { PostSummary } from '../../../http/fetch-posts'
 import PostCard from '../../../shared-components/post-card'
 import Header from '../../../shared-components/header'
-import fetchCategory, { Category } from '../../../api/fetch-category'
+import fetchCategory, { Category } from '../../../http/fetch-category'
 import PageTitle from '../../../shared-components/page-title'
 
 interface Props {

@@ -5,7 +5,7 @@ import EmailBox from '../page-components/home-page/email-box'
 import FacebookBox from '../page-components/home-page/facebook-box'
 import { GetStaticProps, NextPage } from 'next'
 import PostCard from '../shared-components/post-card'
-import fetchPosts, { PostSummary } from '../api/fetch-posts'
+import fetchPosts, { PostSummary } from '../http/fetch-posts'
 import Overline from '../ui-library/typography/overline'
 import Button from '../ui-library/button/button'
 
