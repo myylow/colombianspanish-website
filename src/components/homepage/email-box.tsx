@@ -1,15 +1,14 @@
 import * as React from 'react'
-import superagent from 'superagent'
 import NextImage from 'next/image'
 import Button from '../design-system/button/button'
 import { useState } from 'react'
+import postMailingListSignup from '../../api/post-mailing-list-signup'
 
 interface Props {
-  mailingListUrl: string
   accentColor: string
 }
 
-const EmailBox = ({ mailingListUrl, accentColor }: Props) => {
+const EmailBox = ({ accentColor }: Props) => {
   const [firstName, setFirstName] = useState('')
   const [email, setEmail] = useState('')
   const [subscribeResult, setSubscribeResult] = useState('ready')
@@ -24,11 +23,6 @@ const EmailBox = ({ mailingListUrl, accentColor }: Props) => {
 
   const handleButtonClick = async (event: React.MouseEvent) => {
     event.preventDefault()
-
-    var requestData = {
-      email: email,
-      firstName: firstName,
-    }
 
     if (email.trim() === '') {
       setSubscribeResult('no-email')
@@ -46,10 +40,7 @@ const EmailBox = ({ mailingListUrl, accentColor }: Props) => {
     setSubscribeResult('ready')
 
     try {
-      await superagent.post(mailingListUrl).send(requestData).timeout({
-        response: 3500,
-        deadline: 3500,
-      })
+      await postMailingListSignup(email, firstName)
       setButtonStatus('sent')
       setSubscribeResult('success')
     } catch (error) {
