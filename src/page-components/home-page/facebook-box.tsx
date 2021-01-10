@@ -21,7 +21,7 @@ const FacebookBox = ({ accentColor }: Props) => {
       </div>
       <div className="description text-lg text-left px-4 text-gray-600">
         <p>
-          Everything’s easier with friends. Get help with your learning by joining the 750+ other
+          Everything’s easier with friends. Get help with your learning by joining the 1800+ other
           Colombian Spanish enthusiasts in our Facebook community.
         </p>
         <p>
