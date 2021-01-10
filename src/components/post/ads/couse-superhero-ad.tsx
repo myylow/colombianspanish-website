@@ -4,10 +4,10 @@ import NextImage from 'next/image'
 
 const CourseSuperheroAd = () => {
   return (
-    <div className="bg-gray-100 py-12 px-8 mb-4 rounded-lg">
-      <h2 className="text-center text-2xl mb-8 font-bold">Become a Colombian Spanish Superhero!</h2>
+    <div className="bg-gray-100 px-8 py-8 rounded-lg">
+      <h2 className="text-center text-2xl font-bold">Become a Colombian Spanish Superhero!</h2>
 
-      <div className="flex items-center">
+      <div className="grid grid-cols-2 items-center">
         <Link href="/course">
           <a>
             <NextImage
@@ -17,7 +17,7 @@ const CourseSuperheroAd = () => {
             />
           </a>
         </Link>
-        <div className="flex-1 ml-8">
+        <div className="ml-8">
           <p>
             Gain the superpowers of <b>charm</b> and <b>charisma</b> when speaking Spanish.
           </p>

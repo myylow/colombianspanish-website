@@ -9,7 +9,7 @@ interface Props {
 
 const EmailSignupAd = ({ title, description, imageSrc }: Props) => {
   return (
-    <section className="flex items-center bg-gray-100 border-gray-500 py-12 px-16 text-md my-8 rounded-sm">
+    <section className="flex items-center bg-gray-100 border-gray-500 py-12 px-12 text-md my-8 rounded-sm">
       <div className="flex flex-col">
         <NextImage src={imageSrc} width="140" height="140" className="self-center" />
 
