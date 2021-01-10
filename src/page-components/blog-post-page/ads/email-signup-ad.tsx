@@ -2,10 +2,8 @@ import * as React from 'react'
 import NextImage from 'next/image'
 import Input from '../../../ui-library/input/input'
 import Button from '../../../ui-library/button/button'
-import { useState } from 'react'
-import { FormValues, SubscribeResult } from '../../home-page/email-box'
 import { useForm } from 'react-hook-form'
-import postMailingListSignup from '../../../api/post-mailing-list-signup'
+import useMailingListSignup, { FormValues } from '../../../shared-hooks/use-mailing-list-signup'
 
 interface Props {
   title: string
@@ -14,33 +12,9 @@ interface Props {
 }
 
 const EmailSignupAd = ({ title, description, imageSrc }: Props) => {
-  const [buttonStatus, setButtonStatus] = useState('ready')
-  const [subscribeResult, setSubscribeResult] = useState<SubscribeResult>('ready')
+  const { handleFormSubmit, subscribeResult, buttonStatus } = useMailingListSignup()
+
   const { register, errors, handleSubmit } = useForm<FormValues>()
-
-  const handleFormSubmit = async (formValues: FormValues) => {
-    const { email, firstName } = formValues
-
-    setButtonStatus('sending')
-    setSubscribeResult('ready')
-    try {
-      await postMailingListSignup(email, firstName)
-      setButtonStatus('sent')
-      setSubscribeResult('success')
-    } catch (error) {
-      setButtonStatus('ready')
-      try {
-        var code = JSON.parse(error.response.text).code
-        if (code === 214) {
-          setSubscribeResult('already-signedup')
-        } else {
-          setSubscribeResult('general-error')
-        }
-      } catch (e) {
-        setSubscribeResult('general-error')
-      }
-    }
-  }
 
   return (
     <section className="flex items-center bg-gray-100 border-gray-500 py-12 px-8 text-md my-8 rounded-sm">
