@@ -1,10 +1,10 @@
 import * as React from 'react'
 import NextImage from 'next/image'
-import Button from '../design-system/button/button'
+import Button from '../../ui-library/button/button'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import postMailingListSignup from '../../api/post-mailing-list-signup'
-import Input from '../design-system/input/input'
+import Input from '../../ui-library/input/input'
 
 interface Props {
   accentColor: string

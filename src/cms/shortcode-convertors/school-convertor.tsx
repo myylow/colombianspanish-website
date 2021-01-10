@@ -1,5 +1,5 @@
 import * as React from 'react'
-import SchoolCard from '../../../components/post/school-card'
+import SchoolCard from '../../page-components/blog-post-page/school-card'
 
 const convertSchoolShortcode = (shortcode: string) => {
   const shortcodeData = shortcode.match(/\[school (.*?)\]/)

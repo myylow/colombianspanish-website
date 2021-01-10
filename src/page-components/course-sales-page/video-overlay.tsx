@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useEffect } from 'react'
-import Button from '../design-system/button/button'
+import Button from '../../ui-library/button/button'
 
 interface WistiaPlayer {
   pause: () => void

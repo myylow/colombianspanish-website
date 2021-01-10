@@ -1,13 +1,13 @@
 import * as React from 'react'
 import Head from 'next/head'
-import Header from '../components/shared/header'
-import EmailBox from '../components/homepage/email-box'
-import FacebookBox from '../components/homepage/facebook-box'
+import Header from '../shared-components/header'
+import EmailBox from '../page-components/home-page/email-box'
+import FacebookBox from '../page-components/home-page/facebook-box'
 import { GetStaticProps, NextPage } from 'next'
-import PostCard from '../components/shared/post-card'
+import PostCard from '../shared-components/post-card'
 import fetchPosts, { PostSummary } from '../api/fetch-posts'
-import Overline from '../components/design-system/typography/overline'
-import Button from '../components/design-system/button/button'
+import Overline from '../ui-library/typography/overline'
+import Button from '../ui-library/button/button'
 
 interface Props {
   posts: PostSummary[]

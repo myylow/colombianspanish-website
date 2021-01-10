@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
-import Button, { ButtonColor } from '../design-system/button/button'
+import Button, { ButtonColor } from '../ui-library/button/button'
 import NextImage from 'next/image'
 
 interface Props {

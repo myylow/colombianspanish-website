@@ -1,9 +1,9 @@
 import * as React from 'react'
 import NextImage from 'next/image'
-import Input from '../../design-system/input/input'
-import Button from '../../design-system/button/button'
+import Input from '../../../ui-library/input/input'
+import Button from '../../../ui-library/button/button'
 import { useState } from 'react'
-import { FormValues, SubscribeResult } from '../../homepage/email-box'
+import { FormValues, SubscribeResult } from '../../home-page/email-box'
 import { useForm } from 'react-hook-form'
 import postMailingListSignup from '../../../api/post-mailing-list-signup'
 

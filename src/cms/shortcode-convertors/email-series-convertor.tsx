@@ -1,5 +1,5 @@
 import * as React from 'react'
-import EmailSignupAd from '../../../components/post/ads/email-signup-ad'
+import EmailSignupAd from '../../page-components/blog-post-page/ads/email-signup-ad'
 
 const convertEmailSeriesShortcode = () => {
   const variant = Math.random() <= 0.5 ? 'A' : 'B'

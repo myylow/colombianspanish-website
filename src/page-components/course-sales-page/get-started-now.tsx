@@ -1,6 +1,6 @@
 import * as React from 'react'
-import Button from '../design-system/button/button'
-import Price from '../design-system/typography/price'
+import Button from '../../ui-library/button/button'
+import Price from '../../ui-library/typography/price'
 
 const paymentUrl =
   'https://sso.teachable.com/secure/150268/checkout/541775/conversational-spanish-for-colombia-self-study'

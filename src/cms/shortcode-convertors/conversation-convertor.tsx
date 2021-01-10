@@ -1,5 +1,7 @@
 import * as React from 'react'
-import Conversation, { ConversationPerson } from '../../../components/post/conversation-speaker'
+import Conversation, {
+  ConversationPerson,
+} from '../../page-components/blog-post-page/conversation-speaker'
 
 const convertConversationShortcode = (shortcode: string) => {
   // [conversation]

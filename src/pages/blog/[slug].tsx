@@ -1,11 +1,11 @@
 import * as React from 'react'
 import Head from 'next/head'
-import { convertWpHtmlToJsx } from '../../lib/wordpress/jsx-converter'
-import Header from '../../components/shared/header'
+import { convertWpHtmlToJsx } from '../../cms/jsx-converter'
+import Header from '../../shared-components/header'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import fetchPost, { Post } from '../../api/fetch-post'
 import { useEffect } from 'react'
-import PostCard from '../../components/shared/post-card'
+import PostCard from '../../shared-components/post-card'
 
 interface Props {
   post: Post
