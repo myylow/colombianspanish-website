@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ['./src/components/**/*.{ts,tsx}', './src/lib/**/*.{ts,tsx}', './src/pages/**/*.{ts,tsx}'],
+  purge: ['./src/**/*.{ts,tsx}'],
   variants: {
     extend: {
       margin: ['first'],
