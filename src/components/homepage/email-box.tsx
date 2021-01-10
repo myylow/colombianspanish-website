@@ -10,12 +10,12 @@ interface Props {
   accentColor: string
 }
 
-interface FormValues {
+export interface FormValues {
   email: string
   firstName: string
 }
 
-type SubscribeResult = 'ready' | 'success' | 'already-signedup' | 'general-error'
+export type SubscribeResult = 'ready' | 'success' | 'already-signedup' | 'general-error'
 
 const EmailBox = ({ accentColor }: Props) => {
   const [subscribeResult, setSubscribeResult] = useState<SubscribeResult>('ready')
@@ -63,6 +63,7 @@ const EmailBox = ({ accentColor }: Props) => {
           Your first name
         </div>
         <Input
+          size="lg"
           type="text"
           name="firstName"
           aria-invalid={errors.firstName ? 'true' : 'false'}
@@ -77,6 +78,7 @@ const EmailBox = ({ accentColor }: Props) => {
           Your email
         </div>
         <Input
+          size="lg"
           type="email"
           name="email"
           aria-invalid={errors.email ? 'true' : 'false'}
@@ -93,7 +95,7 @@ const EmailBox = ({ accentColor }: Props) => {
             bgColor="turquoise"
             size="md"
             disabled={buttonStatus === 'sending' || buttonStatus === 'sent'}
-            className={'my-8 ' + buttonStatus}
+            className={'my-8'}
           >
             {buttonStatus === 'ready' && <span>Send me the course</span>}
             {buttonStatus === 'sending' && <span>Sending...</span>}
@@ -104,7 +106,7 @@ const EmailBox = ({ accentColor }: Props) => {
       {subscribeResult === 'success' && (
         <div className="mb-8 text-green-600">
           Thanks! You've subscribed succesfully. <br />
-          Please check your email to find our more.
+          Please check your email to find out more.
         </div>
       )}
       {subscribeResult === 'already-signedup' && (

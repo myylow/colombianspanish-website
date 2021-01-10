@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 export type ButtonColor = 'red' | 'blue' | 'turquoise' | 'transparent' | 'outline'
-type ButtonSize = 'xl' | 'lg' | 'md'
+type ButtonSize = 'xl' | 'lg' | 'md' | 'sm'
 
 const buttonColorStyles: Record<ButtonColor, string> = {
   red: 'bg-red-600 hover:bg-red-700 border-none text-white',
@@ -14,6 +14,7 @@ const buttonSizeStyles: Record<ButtonSize, string> = {
   xl: 'py-4 px-24 text-lg',
   lg: 'py-4 px-16 text-md',
   md: 'py-2 px-12 text-base',
+  sm: 'py-2 px-8 text-base',
 }
 
 interface Props {
