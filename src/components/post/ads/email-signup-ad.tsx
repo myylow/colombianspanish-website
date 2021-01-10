@@ -25,9 +25,7 @@ const EmailSignupAd = ({ title, description, imageSrc }: Props) => {
           <div className="cs-chapter-promo__confirmation hidden">
             Thanks! You&apos;ve subscribed succesfully. Please check your email to find our more.
           </div>
-          <div className="js-error-already-signedup hidden">
-            Sorry, your email address has already signed up.
-          </div>
+          <div className="hidden">Sorry, your email address has already signed up.</div>
           <div className="js-error-no-email hidden">Please enter your email address.</div>
           <div className="js-general-error hidden">
             We&apos;re sorry, an error occured. Please try again later.

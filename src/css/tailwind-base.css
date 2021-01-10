@@ -102,10 +102,6 @@
     display: none;
   }
 
-  input {
-    @apply py-2 px-4 rounded-sm border border-gray-300;
-  }
-
   .excerpt p {
     margin: 0px 0;
   }

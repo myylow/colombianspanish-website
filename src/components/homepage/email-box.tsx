@@ -15,15 +15,15 @@ interface FormValues {
   firstName: string
 }
 
+type SubscribeResult = 'ready' | 'success' | 'already-signedup' | 'general-error'
+
 const EmailBox = ({ accentColor }: Props) => {
-  const [subscribeResult, setSubscribeResult] = useState('ready')
+  const [subscribeResult, setSubscribeResult] = useState<SubscribeResult>('ready')
   const [buttonStatus, setButtonStatus] = useState('ready')
-  const { register, handleSubmit } = useForm<FormData>()
+  const { register, errors, handleSubmit } = useForm<FormValues>()
 
   const handleFormSubmit = async (formValues: FormValues) => {
     const { email, firstName } = formValues
-
-    // Proceed with request
 
     setButtonStatus('sending')
     setSubscribeResult('ready')
@@ -35,10 +35,8 @@ const EmailBox = ({ accentColor }: Props) => {
       setButtonStatus('ready')
       try {
         var code = JSON.parse(error.response.text).code
-        if (code == 214) {
+        if (code === 214) {
           setSubscribeResult('already-signedup')
-        } else if (code == -100) {
-          setSubscribeResult('no-email')
         } else {
           setSubscribeResult('general-error')
         }
@@ -67,7 +65,13 @@ const EmailBox = ({ accentColor }: Props) => {
         <Input
           type="text"
           name="firstName"
-          ref={register({ required: true, setValueAs: (val: string) => val.trim() })}
+          aria-invalid={errors.firstName ? 'true' : 'false'}
+          errorMsg={errors.firstName && 'Please enter your first name.'}
+          ref={register({
+            required: true,
+            validate: (v: string) => v.trim() !== '',
+            setValueAs: (v: string) => v.trim(),
+          })}
         />
         <div className="mt-4 mb-2" style={{ color: accentColor }}>
           Your email
@@ -75,60 +79,42 @@ const EmailBox = ({ accentColor }: Props) => {
         <Input
           type="email"
           name="email"
-          ref={register({ required: true, setValueAs: (val: string) => val.trim() })}
+          aria-invalid={errors.email ? 'true' : 'false'}
+          errorMsg={errors.email && 'Please enter a valid email address.'}
+          ref={register({
+            required: true,
+            validate: (v: string) => v.trim() !== '',
+            setValueAs: (v: string) => v.trim(),
+          })}
         />
 
-        <Button
-          bgColor="turquoise"
-          size="md"
-          disabled={buttonStatus == 'sending' || buttonStatus == 'sent'}
-          className={'block mt-8 ' + buttonStatus}
-        >
-          {buttonStatus == 'ready' && <span>Send me the course</span>}
-          {buttonStatus == 'sending' && <span>Sending...</span>}
-          {buttonStatus == 'sent' && <span>✓ Email sent</span>}
-        </Button>
-        <div
-          className={
-            'subscribe-result cs-chapter-promo__confirmation ' +
-            (subscribeResult == 'success' ? '' : 'hidden')
-          }
-        >
-          Thanks! You&apos;ve subscribed succesfully. Please check your email to find our more.
-        </div>
-        <div
-          className={
-            'subscribe-result js-error-already-signedup ' +
-            (subscribeResult == 'already-signedup' ? 'fail' : 'hidden')
-          }
-        >
-          Sorry, your email address has already signed up.
-        </div>
-        <div
-          className={
-            'subscribe-result js-error-no-email ' +
-            (subscribeResult == 'no-email' ? 'fail' : 'hidden')
-          }
-        >
-          Please enter a valid email address.
-        </div>
-        <div
-          className={
-            'subscribe-result js-error-no-first-name ' +
-            (subscribeResult == 'no-first-name' ? 'fail' : 'hidden')
-          }
-        >
-          Please enter your first name.
-        </div>
-        <div
-          className={
-            'subscribe-result js-general-error ' +
-            (subscribeResult == 'general-error' ? 'fail' : 'hidden')
-          }
-        >
-          We&apos;re sorry, an error occured. Please try again later.
+        <div className="text-center">
+          <Button
+            bgColor="turquoise"
+            size="md"
+            disabled={buttonStatus === 'sending' || buttonStatus === 'sent'}
+            className={'my-8 ' + buttonStatus}
+          >
+            {buttonStatus === 'ready' && <span>Send me the course</span>}
+            {buttonStatus === 'sending' && <span>Sending...</span>}
+            {buttonStatus === 'sent' && <span>✓ Email sent</span>}
+          </Button>
         </div>
       </form>
+      {subscribeResult === 'success' && (
+        <div className="mb-8 text-green-600">
+          Thanks! You've subscribed succesfully. <br />
+          Please check your email to find our more.
+        </div>
+      )}
+      {subscribeResult === 'already-signedup' && (
+        <div className="mb-8 text-red-600">Sorry, your email address has already signed up.</div>
+      )}
+      {subscribeResult === 'general-error' && (
+        <div className="mb-8 text-red-600">
+          We're sorry, an error occured. Please try again later.
+        </div>
+      )}
     </aside>
   )
 }
