@@ -86,12 +86,12 @@ const ColombianSpanishApp = ({ Component, pageProps }: AppProps) => {
         </div>
 
         {/* site footer  */}
-        <footer className="container flex flex-row justify-between py-8 text-gray-600">
-          <span>© Colombian Spanish, 2021</span>
-          <div className="flex">
-            <div>
+        <footer className="container flex flex-col lg:flex-row lg:items-center justify-between py-8 text-gray-600">
+          <span className="text-center mb-8 lg:mb-0">© Colombian Spanish, 2021</span>
+          <div className="flex items-end lg:items-center justify-between">
+            <div className="flex flex-col lg:flex-row">
               <a
-                className="mx-4"
+                className="lg:mx-4"
                 href="https://secretsofspanish.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -99,29 +99,24 @@ const ColombianSpanishApp = ({ Component, pageProps }: AppProps) => {
                 SecretsOfSpanish.com
               </a>
               <Link href="/about/[pagename]" as="/about/terms-of-use">
-                <a className="mx-4">Terms of Use</a>
+                <a className="lg:mx-4">Terms of Use</a>
               </Link>
               <Link href="/about/[pagename]" as="/about/advertise-with-us">
-                <a className="mx-4">Advertise with us</a>
+                <a className="lg:mx-4">Advertise with us</a>
               </Link>
               <Link href="/about/[pagename]" as="mailto:admin@colombianspanish.co">
-                <a className="mx-4">Contact Us</a>
+                <a className="lg:mx-4">Contact Us</a>
               </Link>
             </div>
-            <ul className="flex ml-8">
+            <ul className="flex lg:ml-8">
               <li className="mx-1">
                 <a target="_blank " href="http://facebook.com/colombianspanish">
-                  <i className="icon-social icon-facebook" />
+                  <i className="icon-social w-10 h-10 lg:w-8 lg:h-8 mx-2 icon-facebook" />
                 </a>
               </li>
               <li className="mx-1">
                 <a target="_blank " href="http://twitter.com/colombianspan">
-                  <i className="icon-social icon-twitter" />
-                </a>
-              </li>
-              <li className="mx-1">
-                <a target="_blank " href="/rss.xml">
-                  <i className="icon-social icon-rss" />
+                  <i className="icon-social w-10 h-10 lg:w-8 lg:h-8 mx-2 icon-twitter" />
                 </a>
               </li>
             </ul>

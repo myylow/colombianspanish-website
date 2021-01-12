@@ -26,7 +26,7 @@ const GeneralHeader = ({ buttonColor = 'red', openMobileMenu = () => {} }: Props
 
   return (
     <section className="container py-3">
-      <div className="md:flex items-center justify-between">
+      <div className="flex items-center justify-between">
         <Link href="/">
           <a className="mr-auto next-image-wrapper" style={{ maxWidth: '302px' }}>
             <NextImage src="/images/mini-header/logo.png" alt="Logo" width="604" height="89" />
@@ -40,36 +40,32 @@ const GeneralHeader = ({ buttonColor = 'red', openMobileMenu = () => {} }: Props
           </a>
         </Link>
 
-        {!isSearchBoxVisible && (
-          <span
-            className={'cursor-pointer ' + (isSearchBoxVisible ? 'invisible' : 'ml-7')}
-            onClick={() => setIsSearchBoxVisible(true)}
+        <div className="hidden lg:block">
+          {!isSearchBoxVisible && (
+            <span
+              className={'cursor-pointer ' + (isSearchBoxVisible ? 'invisible' : 'ml-7')}
+              onClick={() => setIsSearchBoxVisible(true)}
+            >
+              <i className="material-icons" style={{ top: '0px' }}>
+                search
+              </i>
+            </span>
+          )}
+
+          <form
+            action="/search"
+            className={isSearchBoxVisible ? 'search-bar visible' : 'search-bar'}
           >
-            <i className="material-icons" style={{ top: '0px' }}>
-              search
-            </i>
-          </span>
-        )}
-
-        <form action="/search" className={isSearchBoxVisible ? 'search-bar visible' : 'search-bar'}>
-          <input
-            ref={searchBoxRef}
-            autoComplete="off"
-            defaultValue=""
-            type="text"
-            name="q"
-            placeholder="Search"
-          />
-        </form>
-      </div>
-
-      <div className="md:hidden">
-        <a href="/">
-          <img className="logo" src="/images/mini-header/logo.png" alt="Logo" />
-        </a>
-        <i onClick={openMobileMenu} className="material-icons hamburger">
-          menu
-        </i>
+            <input
+              ref={searchBoxRef}
+              autoComplete="off"
+              defaultValue=""
+              type="text"
+              name="q"
+              placeholder="Search"
+            />
+          </form>
+        </div>
       </div>
 
       <style jsx>{`

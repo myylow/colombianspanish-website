@@ -27,13 +27,7 @@ const Index: NextPage<Props> = ({ posts }: Props) => {
         {/* hero image */}
         <section className="text-center">
           <div
-            className="h-96 bg-no-repeat bg-cover bg-center md:hidden relative"
-            style={{
-              backgroundImage: "url('/components/homepage/heroimage-cartagena-1000.jpg')",
-            }}
-          />
-          <div
-            className="h-96 py-72 bg-no-repeat bg-cover bg-center md:block relative"
+            className="h-96 py-72 bg-no-repeat bg-cover bg-center block relative"
             style={{
               backgroundImage: "url('/components/homepage/heroimage-cartagena-2000.jpg')",
             }}
@@ -58,7 +52,8 @@ const Index: NextPage<Props> = ({ posts }: Props) => {
 
         {/* post list  */}
         <PostCardList posts={posts} spacing="md" />
-        <div className="container mx-auto px-64 my-20 grid grid-cols-2 gap-16">
+
+        <div className="container mx-auto my-4 lg:my-12 grid lg:grid-cols-2 gap-16">
           <EmailBox accentColor="#0fb981" />
           <FacebookBox accentColor="#3b5998" />
         </div>

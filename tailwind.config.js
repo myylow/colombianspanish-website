@@ -10,7 +10,10 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '12rem',
+      padding: {
+        DEFAULT: '1rem',
+        lg: '12rem',
+      },
     },
     fontFamily: {
       ssp: [
