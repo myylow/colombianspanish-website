@@ -4,7 +4,7 @@ import Header from '../shared-components/header'
 import EmailBox from '../page-components/home-page/email-box'
 import FacebookBox from '../page-components/home-page/facebook-box'
 import { GetStaticProps, NextPage } from 'next'
-import PostCard from '../shared-components/post-card'
+import PostCardList from '../shared-components/post-card-list'
 import fetchPosts, { PostSummary } from '../http/fetch-posts'
 import Overline from '../ui-library/typography/overline'
 import Button from '../ui-library/button/button'
@@ -57,12 +57,8 @@ const Index: NextPage<Props> = ({ posts }: Props) => {
         </section>
 
         {/* post list  */}
-        <div className="flex flex-wrap justify-center">
-          {posts.map((post) => {
-            return <PostCard post={post} key={post.slug} />
-          })}
-        </div>
-        <div className="container mx-auto px-64 my-12 grid grid-cols-2 gap-16">
+        <PostCardList posts={posts} spacing="md" />
+        <div className="container mx-auto px-64 my-20 grid grid-cols-2 gap-16">
           <EmailBox accentColor="#0fb981" />
           <FacebookBox accentColor="#3b5998" />
         </div>

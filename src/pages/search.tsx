@@ -3,7 +3,7 @@ import * as React from 'react'
 import fetchPosts, { PostSummary } from '../http/fetch-posts'
 import Header from '../shared-components/header'
 import PageTitle from '../shared-components/page-title'
-import PostCard from '../shared-components/post-card'
+import PostCardList from '../shared-components/post-card-list'
 
 interface Props {
   posts: PostSummary[]
@@ -18,10 +18,8 @@ const Search = ({ posts, searchTerm }: Props) => {
       <PageTitle title={`Search results for "${searchTerm}"...`} />
 
       {Boolean(posts.length) && (
-        <div className="flex flex-wrap justify-center my-8">
-          {posts.map((post) => (
-            <PostCard post={post} key={post.slug} />
-          ))}
+        <div className="mt-4">
+          <PostCardList spacing="md" posts={posts} />
         </div>
       )}
 

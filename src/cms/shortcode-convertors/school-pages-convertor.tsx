@@ -1,16 +1,13 @@
 import * as React from 'react'
+import PostCard from '../../shared-components/post-card'
 
 const convertSchoolsPagesShortcode = () => {
   var schoolsPosts = [
     {
       title: 'Your Options for Studying Spanish in Bogota',
-      link: '/options-for-studying-spanish-bogota',
-      images: {
-        large_thumbnail: {
-          url:
-            'https://colombianspanishblog.files.wordpress.com/2017/09/bogota-appearances-can-be-deceptive-bogota-attractions-colonial-cities-46.jpg?w=335',
-        },
-      },
+      slug: '/options-for-studying-spanish-bogota',
+      image:
+        'https://colombianspanishblog.files.wordpress.com/2017/09/bogota-appearances-can-be-deceptive-bogota-attractions-colonial-cities-46.jpg?w=335',
       categories: [
         {
           name: 'Where To Study',
@@ -21,13 +18,9 @@ const convertSchoolsPagesShortcode = () => {
     },
     {
       title: 'Studying Spanish in Medellin: the City’s Best Schools',
-      link: '/studying-spanish-in-medellin-best-schools',
-      images: {
-        large_thumbnail: {
-          url:
-            'https://colombianspanishblog.files.wordpress.com/2017/09/medellin-the-captivating-city-of-the-eternal-spring-medellin-68.jpg?w=335',
-        },
-      },
+      slug: '/studying-spanish-in-medellin-best-schools',
+      image:
+        'https://colombianspanishblog.files.wordpress.com/2017/09/medellin-the-captivating-city-of-the-eternal-spring-medellin-68.jpg?w=335',
       categories: [
         {
           name: 'Where To Study',
@@ -37,8 +30,10 @@ const convertSchoolsPagesShortcode = () => {
     },
   ]
   return (
-    <div className="schools-pages-container">
-      {/* <PostTeaserContainer posts={schoolsPosts} /> */}
+    <div className="grid grid-cols-2 gap-2">
+      {schoolsPosts.map((post) => {
+        return <PostCard spacing="none" size="sm" post={post} key={post.slug} />
+      })}
     </div>
   )
 }

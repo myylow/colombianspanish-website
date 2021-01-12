@@ -5,7 +5,7 @@ import Header from '../../shared-components/header'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import fetchPost, { Post } from '../../http/fetch-post'
 import { useEffect } from 'react'
-import PostCard from '../../shared-components/post-card'
+import PostCardList from '../../shared-components/post-card-list'
 
 interface Props {
   post: Post
@@ -127,10 +127,8 @@ const BlogPost = ({ post }: Props) => {
 
             <div className="max-w-2xl mx-auto mt-12 text-xl text-gray-600">{content}</div>
 
-            <div className="flex flex-wrap justify-center">
-              {post.relatedPosts.map((it) => {
-                return <PostCard post={it} key={it.slug} />
-              })}
+            <div className="my-8">
+              <PostCardList posts={post.relatedPosts} spacing="md" />
             </div>
           </article>
         </div>

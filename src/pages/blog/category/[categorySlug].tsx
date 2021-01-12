@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import * as React from 'react'
 import fetchPosts, { PostSummary } from '../../../http/fetch-posts'
-import PostCard from '../../../shared-components/post-card'
 import Header from '../../../shared-components/header'
 import fetchCategory, { Category } from '../../../http/fetch-category'
 import PageTitle from '../../../shared-components/page-title'
+import PostCardList from '../../../shared-components/post-card-list'
 
 interface Props {
   posts: PostSummary[]
@@ -16,10 +16,8 @@ const CategoryListing: NextPage<Props> = ({ posts, category }: Props) => {
     <>
       <Header buttonColor="red" />
       <PageTitle title={category.name} />
-      <div className="flex flex-wrap justify-center my-8">
-        {posts.map((post) => {
-          return <PostCard post={post} key={post.slug} />
-        })}
+      <div className="my-8">
+        <PostCardList spacing="md" posts={posts} />
       </div>
     </>
   )
