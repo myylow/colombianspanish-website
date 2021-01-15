@@ -27,18 +27,18 @@ const Index: NextPage<Props> = ({ posts }: Props) => {
         {/* hero image */}
         <section className="text-center">
           <div
-            className="h-96 py-72 bg-no-repeat bg-cover bg-center block relative"
+            className="h-60 lg:h-96 lg:py-72 bg-no-repeat bg-cover bg-center block relative"
             style={{
               backgroundImage: "url('/components/homepage/heroimage-cartagena-2000.jpg')",
             }}
           />
-          <div className="bg-white rounded-3xl -mt-44 max-w-4xl mx-auto py-10 px-24 relative z-10">
+          <div className="bg-white rounded-3xl lg:-mt-44 max-w-4xl mx-auto py-8 lg:py-10 px-10 lg:px-24 relative z-10">
             <Overline className="mb-1">Video Course</Overline>
-            <h1 className="font-black text-4xl mb-5 max-w-lg mx-auto">
+            <h1 className="font-black text-2xl lg:text-4xl mb-5 max-w-lg mx-auto">
               Learn how to speak Spanish like a Colombian
             </h1>
 
-            <div className="text-xl text-gray-600 mb-8 max-w-lg mx-auto">
+            <div className="text-lg lg:text-xl text-gray-600 mb-8 max-w-lg mx-auto">
               Our unique “<i>Conversational Spanish for Colombia</i>” course teaches you the Spanish
               you need to know to get the most out of your time in Colombia.
             </div>

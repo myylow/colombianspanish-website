@@ -7,11 +7,11 @@ export type CardSpacing = 'md' | 'none'
 type CardSize = 'md' | 'sm'
 
 const sizeToClasses: Record<CardSize, string> = {
-  md: 'w-96 px-5 text-lg',
+  md: 'w-full lg:w-96 px-5 text-lg',
   sm: 'w-68 px-4 text-lg',
 }
 const spacingToClasses: Record<CardSpacing, string> = {
-  md: 'mx-6 my-4',
+  md: 'lg:mx-6 lg:my-4',
   none: '',
 }
 
