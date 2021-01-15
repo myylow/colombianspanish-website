@@ -14,7 +14,7 @@ const EmailBox = ({ accentColor }: Props) => {
   const { handleFormSubmit, subscribeResult, buttonStatus } = useMailingListSignup()
 
   return (
-    <aside className="border border-gray-300 rounded-sm text-center relative shadow-lg pt-16 px-8">
+    <aside className="border border-gray-300 rounded-sm text-center relative shadow-lg pt-16 px-4 lg:px-8">
       <h4 className="text-xl uppercase font-semibold mb-4" style={{ color: accentColor }}>
         7 day transformation
       </h4>

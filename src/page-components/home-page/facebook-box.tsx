@@ -11,7 +11,7 @@ const FacebookBox = ({ accentColor }: Props) => {
       href="https://www.facebook.com/groups/learnspanishcolombia/"
       target="_blank"
       rel="noopener noreferrer"
-      className="block border border-gray-300 rounded-md text-center relative shadow-lg py-16 px-8"
+      className="block border border-gray-300 rounded-md text-center relative shadow-lg py-16 px-4 lg:px-8"
     >
       <h4 className="text-xl uppercase font-semibold mb-8" style={{ color: accentColor }}>
         Join our community
