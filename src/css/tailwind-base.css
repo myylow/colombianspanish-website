@@ -96,6 +96,9 @@
     margin: 32px 0;
     line-height: 1.6;
   }
+  p:last-child {
+    margin-bottom: 0px;
+  }
 
   q::before,
   q::after {

@@ -68,7 +68,7 @@ const BlogPost = ({ post }: Props) => {
             </span>
 
             <header className="justify-between bg-gray-100">
-              <div className="flex flex-row items-center container py-8">
+              <div className="flex flex-col md:flex-row items-center container py-8">
                 {/* post image */}
                 <div
                   className="bg-cover bg-center mx-auto w-80 h-52 rounded-3xl shadow-xl mr-10"
@@ -76,7 +76,7 @@ const BlogPost = ({ post }: Props) => {
                 />
 
                 {/* categories */}
-                <div className="flex-1">
+                <div className="flex-1 mt-8 md:mt-0 text-center md:text-left">
                   {post.categories.map((it) => {
                     return (
                       <a
@@ -90,13 +90,16 @@ const BlogPost = ({ post }: Props) => {
                   })}
 
                   {/* title and sub-title */}
-                  <h1 className="font-bold text-4xl text-gray-800" itemProp="headline name">
+                  <h1
+                    className="font-bold text-4xl text-gray-800 text-left"
+                    itemProp="headline name"
+                  >
                     {post.title}
                   </h1>
-                  <div className="text-gray-600 text-xl mt-2">{post.subtitle}</div>
+                  <div className="text-gray-600 text-xl mt-2 text-left">{post.subtitle}</div>
 
                   {/* author and social share links  */}
-                  <div className="flex items-center text-sm mt-8">
+                  <div className="flex items-center justify-between md:justify-start text-sm mt-8 text-center">
                     <div className="flex items-center border-gray-300">
                       <img
                         className="rounded-full w-12 mr-4  border-gray-400"
@@ -125,7 +128,9 @@ const BlogPost = ({ post }: Props) => {
               </div>
             </header>
 
-            <div className="max-w-2xl mx-auto mt-12 text-xl text-gray-600">{content}</div>
+            <div className="max-w-2xl mx-auto mt-8 md:mt-12 text-xl text-gray-600 px-8 md:px-0">
+              {content}
+            </div>
 
             <div className="my-8">
               <PostCardList posts={post.relatedPosts} spacing="md" />

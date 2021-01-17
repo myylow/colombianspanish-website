@@ -7,9 +7,9 @@ const CourseSuperheroAd = () => {
     <div className="bg-gray-100 px-8 py-8 rounded-lg">
       <h2 className="text-center text-2xl font-bold">Become a Colombian Spanish Superhero!</h2>
 
-      <div className="grid grid-cols-2 items-center">
+      <div className="flex flex-col md:flex-row items-center mt-4 md:mt-0">
         <Link href="/course">
-          <a>
+          <a className="flex-none max-w-xs">
             <NextImage
               src="https://colombianspanishblog.files.wordpress.com/2016/11/colombian-spanish-from-zero-to-hero-study-aids-speak-naturally-integrating-245.jpg"
               width="384"
@@ -17,7 +17,7 @@ const CourseSuperheroAd = () => {
             />
           </a>
         </Link>
-        <div className="ml-8">
+        <div className="md:ml-8">
           <p>
             Gain the superpowers of <b>charm</b> and <b>charisma</b> when speaking Spanish.
           </p>
