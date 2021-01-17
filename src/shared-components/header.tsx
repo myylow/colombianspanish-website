@@ -3,6 +3,9 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import Button, { ButtonColor } from '../ui-library/button/button'
 import NextImage from 'next/image'
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css'
+import Input from '../ui-library/input/input'
 
 interface Props {
   buttonColor?: ButtonColor
@@ -28,15 +31,16 @@ const GeneralHeader = ({ buttonColor = 'red', openMobileMenu = () => {} }: Props
     <section className="container py-3">
       <div className="flex items-center justify-between">
         <Link href="/">
-          <>
-            <a className="mr-auto next-image-wrapper hidden lg:block" style={{ maxWidth: '302px' }}>
-              <NextImage src="/images/mini-header/logo.png" alt="Logo" width="604" height="89" />
-            </a>
-            <a className="mr-auto next-image-wrapper lg:hidden">
-              <NextImage src="/images/mini-header/logo.png" alt="Logo" width="272" height="40" />
-            </a>
-          </>
+          <a className="mr-auto next-image-wrapper hidden lg:block" style={{ maxWidth: '302px' }}>
+            <NextImage src="/images/mini-header/logo.png" alt="Logo" width="604" height="89" />
+          </a>
         </Link>
+        <Link href="/">
+          <a className="mr-auto next-image-wrapper lg:hidden">
+            <NextImage src="/images/mini-header/logo.png" alt="Logo" width="272" height="40" />
+          </a>
+        </Link>
+
         <div className="hidden lg:block">
           <Link href="/course">
             <a className="mx-7 text-gray-600 hover:text-red-600 text-lg">
@@ -48,9 +52,38 @@ const GeneralHeader = ({ buttonColor = 'red', openMobileMenu = () => {} }: Props
         </div>
 
         <div className="lg:hidden">
-          <i onClick={openMobileMenu} className="material-icons text-3xl text-gray-600">
-            menu
-          </i>
+          <Popup
+            overlayStyle={{ background: 'rgba(0, 0, 0, 0.9)' }}
+            contentStyle={{ width: '90%', maxWidth: '350px', borderRadius: '8px' }}
+            trigger={
+              <i onClick={openMobileMenu} className="material-icons text-3xl text-gray-600 ">
+                menu
+              </i>
+            }
+            modal={true}
+          >
+            <aside className="p-6 md:p-8">
+              <section className="text-center">
+                <header className="text-red-600 uppercase font-semibold text-lg px-12 mb-2">
+                  Colombian Spanish Video Course
+                </header>
+                <div className="text-gray-600">
+                  Our six week course on how to speak Spanish like a native Colombian
+                </div>
+                <Link href="/course">
+                  <Button bgColor="red" size="lg" className="mt-4">
+                    Learn More
+                  </Button>
+                </Link>
+              </section>
+              <section className="mt-8 pt-8 text-center text-gray-600 uppercase font-semibold border-t border-gray-300">
+                <div className="mb-2">Site Search</div>
+                <form action="/search">
+                  <Input type="text" name="q" size="lg" placeholder="Search" />
+                </form>
+              </section>
+            </aside>
+          </Popup>
         </div>
 
         <div className="hidden lg:flex ">

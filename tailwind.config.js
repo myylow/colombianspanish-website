@@ -12,7 +12,7 @@ module.exports = {
       center: true,
       padding: {
         DEFAULT: '1rem',
-        lg: '12rem',
+        lg: '0rem',
       },
     },
     fontFamily: {

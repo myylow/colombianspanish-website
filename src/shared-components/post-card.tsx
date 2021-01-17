@@ -7,11 +7,11 @@ export type CardSpacing = 'md' | 'none'
 type CardSize = 'md' | 'sm'
 
 const sizeToClasses: Record<CardSize, string> = {
-  md: 'w-full lg:w-96 px-5 text-lg',
+  md: 'w-full md:w-72 lg:w-96 px-5 text-lg',
   sm: 'w-68 px-4 text-lg',
 }
 const spacingToClasses: Record<CardSpacing, string> = {
-  md: 'lg:mx-6 lg:my-4',
+  md: 'md:mx-4 lg:mx-6 lg:my-4',
   none: '',
 }
 
@@ -30,7 +30,7 @@ const PostCard = ({ post, size, spacing, className = '' }: Props) => {
   return (
     <Link href="/blog/[slug]" as={`/blog/${slug}`}>
       <a
-        className={`${sizeClasses} ${spaceClasses} hover:bg-gray-100 pb-8 pt-10 lg:py-5 border-t lg:border-t-0 ${className}`}
+        className={`${sizeClasses} ${spaceClasses} hover:bg-gray-100 pb-8 pt-10 lg:py-5 border-t md:border-t-0 ${className}`}
       >
         <div className="bg-center bg-cover h-40 rounded-md relative">
           <NextImage src={image} layout="fill" className="object-cover object-center" />

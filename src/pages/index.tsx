@@ -8,6 +8,7 @@ import PostCardList from '../shared-components/post-card-list'
 import fetchPosts, { PostSummary } from '../http/fetch-posts'
 import Overline from '../ui-library/typography/overline'
 import Button from '../ui-library/button/button'
+import Link from 'next/link'
 
 interface Props {
   posts: PostSummary[]
@@ -42,18 +43,18 @@ const Index: NextPage<Props> = ({ posts }: Props) => {
               Our unique “<i>Conversational Spanish for Colombia</i>” course teaches you the Spanish
               you need to know to get the most out of your time in Colombia.
             </div>
-            <a href="/course">
+            <Link href="/course">
               <Button size="xl" bgColor="red">
                 Learn More
               </Button>
-            </a>
+            </Link>
           </div>
         </section>
 
         {/* post list  */}
         <PostCardList posts={posts} spacing="md" />
 
-        <div className="container mx-auto my-4 lg:my-12 grid lg:grid-cols-2 gap-16">
+        <div className="container mx-auto my-4 lg:my-12 grid md:grid-cols-2 gap-16">
           <EmailBox accentColor="#0fb981" />
           <FacebookBox accentColor="#3b5998" />
         </div>
