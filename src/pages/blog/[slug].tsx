@@ -128,7 +128,7 @@ const BlogPost = ({ post }: Props) => {
               </div>
             </header>
 
-            <div className="max-w-2xl mx-auto mt-8 md:mt-12 text-xl text-gray-600 px-8 md:px-0">
+            <div className="max-w-2xl mx-auto mt-8 md:mt-12 text-xl text-gray-600 px-6 md:px-0">
               {content}
             </div>
 

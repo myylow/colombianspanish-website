@@ -4,7 +4,7 @@ import NextImage from 'next/image'
 
 const CourseSuperheroAd = () => {
   return (
-    <div className="bg-gray-100 px-8 py-8 rounded-lg">
+    <div className="bg-gray-100 px-6 md:px-8 py-8 rounded-lg">
       <h2 className="text-center text-2xl font-bold">Become a Colombian Spanish Superhero!</h2>
 
       <div className="flex flex-col md:flex-row items-center mt-4 md:mt-0">
