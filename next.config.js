@@ -72,8 +72,6 @@ const blogPageRedirects = oldBlogPageSlugs.map((slug) => ({
 
 const CF_DOMAIN = process.env.CF_DOMAIN
 
-console.log('url', `${CF_DOMAIN}/download-ebook-epub?subscriberId=:id`)
-
 module.exports = withBundleAnalyzer({
   images: {
     domains: ['colombianspanishblog.files.wordpress.com'],
