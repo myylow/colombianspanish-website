@@ -45,7 +45,7 @@ const CourseModule = ({
 
   return (
     <section>
-      <div className="bg-white border rounded-md shadow relative max-w-3xl mx-auto px-10 py-8 text-gray-700">
+      <div className="bg-white border rounded-md shadow relative max-w-3xl mx-auto px-4 md:px-10 py-8 text-gray-700">
         <span
           className="module-number absolute top-0 text-3xl font-black rounded-3xl text-center px-4 bg-white z-10 leading-relaxed"
           style={{ left: '-90px', boxShadow: '0 0 3px 5px ' + accentColor, color: accentColor }}
@@ -59,7 +59,7 @@ const CourseModule = ({
           />
         )}
         <span
-          className="px-8 py-2 uppercase text-white font-bold absolute top-0 left-0 rounded-br-2xl"
+          className="px-6 md:px-8 py-2 uppercase text-white font-bold absolute top-0 left-0 w-full md:w-auto md:rounded-br-2xl text-center md:text-left"
           style={{ backgroundColor: accentColor }}
         >
           {title}
@@ -68,9 +68,9 @@ const CourseModule = ({
 
         <div className="border-t border-gray-300">
           <div className="uppercase my-6 text-gray-400 font-semibold">Module Details</div>
-          <ul className="flex flex-wrap">
+          <ul className="flex flex-col md:flex-row flex-wrap">
             {lessons.map((lesson) => (
-              <li key={lesson.name} className="w-1/2">
+              <li key={lesson.name} className="md:w-1/2">
                 <div
                   className={`py-2 pl-10 pr-2 text-blue-500 lesson-icon leading-snug ${lesson.type}`}
                 >

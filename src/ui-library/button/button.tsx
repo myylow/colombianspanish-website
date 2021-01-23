@@ -13,7 +13,7 @@ const buttonColorStyles: Record<ButtonColor, string> = {
 const buttonSizeStyles: Record<ButtonSize, string> = {
   xl: 'py-4 px-12 lg:px-24 text-lg',
   lg: 'py-4 px-16 text-md',
-  md: 'py-2 px-4 lg:px-12 text-sm lg:text-base',
+  md: 'py-3 px-8 lg:px-12 text-sm lg:text-base',
   sm: 'py-2 px-8 text-base',
 }
 

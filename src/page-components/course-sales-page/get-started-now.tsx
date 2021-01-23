@@ -38,7 +38,7 @@ const GetStartedNow = () => {
       <h2 className="text-center font-light text-4xl relative mb-16">Get started now</h2>
       <div className="mx-auto flex z-10 relative justify-center">
         <div
-          className="bg-white border-4 flex flex-col rounded-md border-blue-400 max-w-lg px-12 py-8"
+          className="bg-white border-4 flex flex-col rounded-md border-blue-400 max-w-lg px-8 md:px-12 py-8"
           style={{ boxShadow: '0px 3px 15px 6px rgba(155, 155, 155, 0.35)' }}
           id="full-course-payment-box"
         >
@@ -64,7 +64,7 @@ const GetStartedNow = () => {
       </div>
 
       {/* Starter kit */}
-      <aside className="bg-gray-50 max-w-5xl mx-auto my-16 p-12 rounded-xl border text-gray-600 text-lg">
+      <aside className="bg-gray-50 max-w-5xl mx-auto my-16 p-8 md:p-12 rounded-xl border text-gray-600 text-lg">
         <h5 className="uppercase font-semibold text-xl text-gray-700">
           Colombian Spanish Starter Kit
         </h5>
@@ -73,7 +73,7 @@ const GetStartedNow = () => {
           everything you need to get familiar with the Spanish you&apos;ll need to make friends in
           Colombia.
         </p>
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row justify-between">
           <div>
             <h6 className="text-xl text-black mb-4">What&apos;s included?</h6>
             <ul className="list-disc pl-8 leading-relaxed">
@@ -85,11 +85,11 @@ const GetStartedNow = () => {
               <li> Colombian Spanish resource library.</li>
             </ul>
           </div>
-          <div className="flex items-end justify-center">
+          <div className="flex items-end justify-center mt-8 md:mt-0">
             <Price price={39} />
             <a
               href="https://gum.co/colombianspanishstudykit?wanted=true"
-              className="no-gumroad ml-4"
+              className="no-gumroad ml-8"
               data-gumroad-single-product="true"
             >
               <Button bgColor="blue" size="md">

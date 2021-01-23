@@ -7,10 +7,10 @@ const CourseLessons = () => {
       className="background-gradient"
       style={{ backgroundImage: 'linear-gradient(-178deg, #ffffff 0%, #f5f5f5 88%)' }}
     >
-      <h2 className="text-center">
+      <h2 className="container text-center">
         Learn the Spanish your textbook <i>didn&apos;t</i> teach you
       </h2>
-      <p className="max-w-2xl mx-auto text-xl leading-8 text-gray-600 text-center mt-12 mb-16">
+      <p className="container max-w-2xl mx-auto text-xl leading-8 text-gray-600 md:text-center md:mt-12 md:mb-16">
         In six wide-ranging study modules, you&apos;ll learn the essential Spanish that you’ll need
         when interacting with Colombians in a wide variety of common situations. After completing
         the course, you’ll be able to speak in a more natural and entertaining way, and participate
@@ -18,7 +18,7 @@ const CourseLessons = () => {
         understanding of Colombian culture and society - hugely important for truly becoming fluent.
       </p>
       <ul>
-        <li className="my-16">
+        <li className="my-8">
           <CourseModule
             moduleNumber={1}
             title="An introduction to Colombian Spanish"

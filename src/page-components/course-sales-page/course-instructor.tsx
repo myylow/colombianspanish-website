@@ -18,7 +18,7 @@ const CourseInstructor = () => {
           }}
         />
         <h2 className="max-w-3xl text-center mx-auto mt-8 mb-24">Course Instructor</h2>
-        <div className="overlay-box relative bg-white mx-auto max-w-xl mb-24 rounded-md border border-gray-300 shadow-md px-20 py-8">
+        <div className="overlay-box relative bg-white mx-auto max-w-xl mb-12 md:mb-24 rounded-md border border-gray-300 shadow-md px-12 md:px-20 py-8">
           <img src="/components/course/pete-photo.png" className="mx-auto mb-4 -mt-24" />
           <div className="author text-2xl text-center text-gray-600">Peter Low</div>
           <p className="text-xl text-gray-500 leading-relaxed relative">
@@ -36,7 +36,7 @@ const CourseInstructor = () => {
 
       {/* interviews with teachers */}
       <section className="relative">
-        <h2 className="text-center m-12">Expert help</h2>
+        <h2 className="text-center md:my-12">Expert help</h2>
         <p className="container text-center max-w-3xl px-12 text-xl text-gray-600 leading-normal">
           During the course, you’ll also learn from exclusive interviews and video contributions by
           teachers from Colombia’s top language schools in Bogota, Medellin, Cartagena and more.
@@ -82,26 +82,26 @@ const CourseInstructor = () => {
 
       {/* language schools logo */}
       <div className="bg-gray-100 mb-12">
-        <ul className="flex items-center justify-between mx-auto py-8 max-w-4xl">
-          <li className="m-0 w-auto">
+        <ul className="flex flex-col md:flex-row items-center justify-between mx-auto py-4 md:py-8 max-w-4xl">
+          <li className="m-0 w-auto my-6 md:my-0">
             <img
               className="max-h-12 filter-grayscale"
               src="/components/course/school-centro-catalina.png"
             />
           </li>
-          <li className="m-0 w-auto">
+          <li className="m-0 w-auto my-6 md:my-0">
             <img
               className="max-h-12 filter-grayscale"
               src="/components/course/school-colombia-immersion.png"
             />
           </li>
-          <li className="m-0 w-auto">
+          <li className="m-0 w-auto my-6 md:my-0">
             <img
               className="max-h-12 filter-grayscale"
               src="/components/course/school-nueva-lengua.png"
             />
           </li>
-          <li className="m-0 w-auto">
+          <li className="m-0 w-auto my-6 md:my-0">
             <img
               className="max-h-12 filter-grayscale"
               src="/components/course/school-social-spanish.png"

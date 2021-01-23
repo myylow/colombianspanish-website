@@ -2,7 +2,7 @@ import * as React from 'react'
 
 const Faq = () => {
   return (
-    <section className="rounded-3xl bg-gray-100 px-28 py-16 text-xl leading-8 container max-w-5xl text-gray-700">
+    <section className="rounded-3xl bg-gray-100 container px-8 md:px-20 py-16 text-xl leading-8 container max-w-5xl text-gray-700">
       <h2 className="text-center">Course FAQ</h2>
       <ul>
         <li className="my-12">
