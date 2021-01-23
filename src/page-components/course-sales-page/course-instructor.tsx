@@ -17,9 +17,12 @@ const CourseInstructor = () => {
             top: '125px',
           }}
         />
-        <h2 className="max-w-3xl text-center mx-auto mt-8 mb-24">Course Instructor</h2>
-        <div className="overlay-box relative bg-white mx-auto max-w-xl mb-12 md:mb-24 rounded-md border border-gray-300 shadow-md px-12 md:px-20 py-8">
-          <img src="/components/course/pete-photo.png" className="mx-auto mb-4 -mt-24" />
+        <h2 className="max-w-3xl text-center mx-auto mt-8 pt-4 mb-24">Course Instructor</h2>
+        <div
+          className="overlay-box relative bg-white mx-auto max-w-xl mb-12 md:mb-24 rounded-md border border-gray-300 
+        shadow-md px-12 md:px-20 py-12"
+        >
+          <img src="/components/course/pete-photo.png" className="mx-auto mb-4 -mt-28" />
           <div className="author text-2xl text-center text-gray-600">Peter Low</div>
           <p className="text-xl text-gray-500 leading-relaxed relative">
             <span className="absolute text-gray-600 font-black text-7xl -left-8 -top-4">“</span>
