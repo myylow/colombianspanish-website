@@ -89,7 +89,7 @@ const VideoOverlay = ({ scrollToPaymentBox }: Props) => {
   }
 
   return (
-    <section className="container">
+    <section className="container px-0">
       <div
         id="course-promo-video-popover"
         className="wistia_embed wistia_async_34m3ic6icb"
@@ -113,20 +113,20 @@ const VideoOverlay = ({ scrollToPaymentBox }: Props) => {
         <div className="orange-overlay absolute top-0 left-0 opacity-90 w-full h-full" />
         <div className="absolute mx-auto flex items-center justify-center left-0 right-0 top-0 bottom-0 text-center">
           <div>
-            <h1 className="text-white font-light tracking-tight text-6xl">
+            <h1 className="text-white font-light tracking-tight text-4xl md:text-6xl">
               Conversational <br />
               Spanish for Colombia
             </h1>
-            <div className="text-white text-3xl max-w-2xl my-8">
+            <div className="text-white text-lg md:text-2xl lg:text-3xl max-w-md md:max-w-2xl md:my-8 px-4 md:px-0">
               Leave behind overly formal textbook-style Spanish, and learn to speak like Colombians{' '}
               <i>really</i> do.
             </div>
-            <div className="flex mt-12">
+            <div className="flex mt-4 md:mt-12 flex-col md:flex-row items-center">
               <Button
                 size="md"
                 onClick={scrollToPaymentBox}
                 bgColor="red"
-                className="mx-4 w-72 py-4 shadow-md"
+                className="mx-4 w-72 py-3 md:py-4 shadow-md mb-4"
               >
                 Get started
               </Button>
@@ -134,7 +134,7 @@ const VideoOverlay = ({ scrollToPaymentBox }: Props) => {
                 size="md"
                 onClick={handlePlayPromoClicked}
                 bgColor="transparent"
-                className="mx-4 w-72 shadow-md"
+                className="mx-4 w-72 py-3 md:py-4 shadow-md mb-4"
               >
                 <span className="play">▷</span> Watch Promo Video
               </Button>

@@ -49,21 +49,21 @@ const CourseFeatures = ({ isBodymovinLoaded }: Props) => {
 
   return (
     <>
-      <div className="course-headline container text-3xl text-gray-600 font-light text-center py-12 px-80 leading-normal">
+      <div className="course-headline container text-xl md:text-2xl lg:text-3xl text-gray-600 font-light text-center py-12 max-w-4xl leading-normal">
         A unique course that teaches you the Spanish you&apos;ll need to make friends, have fun,
         date and get the most out of your time in Colombia.
       </div>
       <section className="bg-gray-100 border-t border-b border-gray-300 mb-12">
-        <ul className="course-facts flex container px-96 py-4 justify-between">
-          <li>
+        <ul className="course-facts flex flex-col md:flex-row container max-w-3xl py-4 justify-between">
+          <li className="my-4 md:my-0">
             <div className="data-key">Enrollment status</div>
             <div className="data-value">Enrollment now open</div>
           </li>
-          <li>
+          <li className="my-4 md:my-0">
             <div className="data-key">Prerequisites</div>
             <div className="data-value">Basic beginners Spanish</div>
           </li>
-          <li>
+          <li className="my-4 md:my-0">
             <div className="data-key">Course Preview</div>
             <div className="data-value">
               <span className="cursor-pointer text-red-600" onClick={handleOverlayClicked}>
@@ -74,10 +74,10 @@ const CourseFeatures = ({ isBodymovinLoaded }: Props) => {
         </ul>
       </section>
       <section className="max-w-3xl mx-auto">
-        <h2 className="text-center">The Spanish that’ll win the locals over</h2>
-        <div className="flex mt-4 mb-12">
+        <h2 className="text-center container">The Spanish that’ll win the locals over</h2>
+        <div className="flex flex-col md:flex-row items-center mt-12 md:mt-4 mb-4 md:mb-12">
           <div id="whatsapp-animation" className="flex-none w-64" />
-          <div className="text-xl text-gray-700 ml-8">
+          <div className="container text-xl text-gray-700 md:ml-8">
             <p>
               To start understanding and speaking the Spanish that Colombians actually use in their
               everyday conversations, you&apos;ll need to look beyond just your Spanish textbook.
@@ -109,11 +109,11 @@ const CourseFeatures = ({ isBodymovinLoaded }: Props) => {
             </ul>
           </div>
         </div>
-        <div className="mx-auto text-xl text-gray-700">
-          <div className="flex">
+        <div className="mx-auto text-xl text-gray-700 container">
+          <div className="flex flex-col md:flex-row">
             <img
               src="/components/course/community.png"
-              className="flex-none -top-4 -left-6 relative"
+              className="flex-none md:-top-4 md:-left-6 relative"
               style={{ width: '68px', height: '68px' }}
             />
             <div>
@@ -127,10 +127,10 @@ const CourseFeatures = ({ isBodymovinLoaded }: Props) => {
               </p>
             </div>
           </div>
-          <div className="flex">
+          <div className="flex flex-col md:flex-row mt-8">
             <img
               src="/components/course/calendar.png"
-              className="flex-none -top-4 -left-6 relative"
+              className="flex-none -top-1 md:-top-4 md:-left-6 relative"
               style={{ width: '68px', height: '68px' }}
             />
             <div>
