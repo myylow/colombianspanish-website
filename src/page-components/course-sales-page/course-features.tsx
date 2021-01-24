@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useEffect, useState } from 'react'
-import { Waypoint } from 'react-waypoint'
+import { useInView } from 'react-intersection-observer'
 
 declare const bodymovin: {
   loadAnimation: (config: {
@@ -19,6 +19,12 @@ interface Props {
 
 const CourseFeatures = ({ isBodymovinLoaded }: Props) => {
   const [phoneAnimation, setPhoneAnimation] = useState<any>()
+  const [phoneRef, inView] = useInView({ triggerOnce: true })
+
+  useEffect(() => {
+    if (!inView) return
+    phoneAnimation.play()
+  }, [inView, phoneAnimation])
 
   useEffect(() => {
     if (!isBodymovinLoaded) return
@@ -35,10 +41,6 @@ const CourseFeatures = ({ isBodymovinLoaded }: Props) => {
 
     setPhoneAnimation(whatsappAnimation)
   }, [isBodymovinLoaded, phoneAnimation])
-
-  const waypointEntered = () => {
-    phoneAnimation.play()
-  }
 
   const handleOverlayClicked = () => {
     var video = (window as any).Wistia.api('sample-lesson-popover')
@@ -87,11 +89,7 @@ const CourseFeatures = ({ isBodymovinLoaded }: Props) => {
               expressions commonly heard in Colombia, together with cultural and contextual
               explanations to allow you to understand when exactly to use them. We&apos;ll cover:
             </p>
-            {isBodymovinLoaded && (
-              <Waypoint onEnter={waypointEntered}>
-                <span />
-              </Waypoint>
-            )}
+            {isBodymovinLoaded && <span ref={phoneRef} />}
             <ul className="list-disc ml-4">
               <li className="my-4">
                 <b>Sparking up conversation, socializing</b> and keeping awkward silences at bay.
