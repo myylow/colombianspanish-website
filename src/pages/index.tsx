@@ -9,6 +9,7 @@ import fetchPosts, { PostSummary } from '../http/fetch-posts'
 import Overline from '../ui-library/typography/overline'
 import Button from '../ui-library/button/button'
 import Link from 'next/link'
+import NextImage from 'next/image'
 
 interface Props {
   posts: PostSummary[]
@@ -27,12 +28,21 @@ const Index: NextPage<Props> = ({ posts }: Props) => {
 
         {/* hero image */}
         <section className="text-center">
-          <div
-            className="h-60 lg:h-96 lg:py-72 bg-no-repeat bg-cover bg-center block relative"
-            style={{
-              backgroundImage: "url('/components/homepage/heroimage-cartagena-2000.jpg')",
-            }}
-          />
+          <div className="relative hidden md:block" style={{ height: '575px' }}>
+            <NextImage
+              layout="fill"
+              objectFit="cover"
+              src="/components/homepage/heroimage-cartagena-2000.jpg"
+            />
+          </div>
+          <div className="relative block md:hidden" style={{ height: '250px' }}>
+            <NextImage
+              layout="fill"
+              objectFit="cover"
+              src="/components/homepage/heroimage-cartagena-2000.jpg"
+            />
+          </div>
+
           <div className="bg-white rounded-3xl lg:-mt-44 max-w-4xl mx-auto py-8 lg:py-10 px-10 lg:px-24 relative z-10">
             <Overline className="mb-1">Video Course</Overline>
             <h1 className="font-black text-2xl lg:text-4xl mb-5 max-w-lg mx-auto">

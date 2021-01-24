@@ -80,7 +80,7 @@ module.exports = withMDX(
 
     // image optimization
     images: {
-      deviceSizes: [640, 768, 1024, 1280, 1536],
+      deviceSizes: [640, 768, 1024, 1280, 1536, 2000],
       domains: ['colombianspanishblog.files.wordpress.com'],
     },
 
