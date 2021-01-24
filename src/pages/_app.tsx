@@ -72,8 +72,18 @@ const ColombianSpanishApp = ({ Component, pageProps }: AppProps) => {
         <meta property="fb:app_id" content="1811401369083538" />
 
         {/* preload fonts */}
-        <link rel="preload" href="/fonts/sourcesanspro/SourceSans3VF-Roman.otf.woff2" as="font" />
-        <link rel="preload" href="/fonts/sourcesanspro/SourceSans3VF-Italic.otf.woff2" as="font" />
+        <link
+          rel="preload"
+          href="/fonts/sourcesanspro/SourceSans3VF-Roman.otf.woff2"
+          as="font"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/sourcesanspro/SourceSans3VF-Italic.otf.woff2"
+          as="font"
+          crossOrigin="anonymous"
+        />
 
         {/* send the referrer  */}
         <meta name="referrer" content="unsafe-url" />
