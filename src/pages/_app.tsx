@@ -30,13 +30,8 @@ const ColombianSpanishApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="referrer" content="unsafe-url" />
-        <meta property="fb:app_id" content="1811401369083538" />
-
+        {/* favicon  */}
         <link rel="shortcut icon" href="/favicon.ico" />
-
         <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
         <link
           rel="apple-touch-icon-precomposed"
@@ -73,6 +68,16 @@ const ColombianSpanishApp = ({ Component, pageProps }: AppProps) => {
         <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <script src="//widget.manychat.com/930231583655266.js" async />
+
+        {/* facebook app id */}
+        <meta property="fb:app_id" content="1811401369083538" />
+
+        {/* preload fonts */}
+        <link rel="preload" href="/fonts/sourcesanspro/SourceSans3VF-Roman.otf.woff2" as="font" />
+        <link rel="preload" href="/fonts/sourcesanspro/SourceSans3VF-Italic.otf.woff2" as="font" />
+
+        {/* send the referrer  */}
+        <meta name="referrer" content="unsafe-url" />
 
         {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZX7NJQ20G"></script>
