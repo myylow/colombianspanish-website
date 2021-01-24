@@ -1,3 +1,5 @@
+const withMDX = require('@next/mdx')()
+
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -72,87 +74,91 @@ const blogPageRedirects = oldBlogPageSlugs.map((slug) => ({
 
 const CF_DOMAIN = process.env.CF_DOMAIN
 
-module.exports = withBundleAnalyzer({
-  images: {
-    domains: ['colombianspanishblog.files.wordpress.com'],
-  },
+module.exports = withMDX(
+  withBundleAnalyzer({
+    pageExtensions: ['tsx', 'mdx'],
 
-  redirects: () => [
-    ...emailCourseRedirects,
-    ...tagPageRedirects,
-    ...blogPageRedirects,
-
-    /* tags to categories */
-    {
-      source: '/tag/:slug',
-      destination: '/blog/category/:slug',
-      permanent: true,
+    images: {
+      domains: ['colombianspanishblog.files.wordpress.com'],
     },
 
-    /* old product urls */
-    {
-      source: '/ebook',
-      destination: '/course',
-      permanent: true,
-    },
-    {
-      source: '/videocourse',
-      destination: 'https://course.colombianspanish.co/p/conversational-spanish-for-colombia',
-      permanent: true,
-    },
-    {
-      source: '/studykit',
-      destination: 'https://gum.co/colombianspanishstudykit',
-      permanent: true,
-    },
+    redirects: () => [
+      ...emailCourseRedirects,
+      ...tagPageRedirects,
+      ...blogPageRedirects,
 
-    /* old blog post urls */
-    {
-      source: '/review-spanish-learning-apps-websites',
-      destination: '/blog/best-online-spanish-courses-apps',
-      permanent: true,
-    },
-    {
-      source: '/review-online-spanish-courses-apps',
-      destination: '/blog/best-online-spanish-courses-apps',
-      permanent: true,
-    },
-    {
-      source: '/revealed-the-best-place-to-study-spanish-in-colombia',
-      destination: '/blog/best-place-to-study-spanish-in-colombia',
-      permanent: true,
-    },
-    {
-      source: '/activities-practice-spanish-envigado',
-      destination: '/blog/practice-spanish-envigado',
-      permanent: true,
-    },
-    {
-      source: '/colombian-culture',
-      destination: '/blog/perplexing-mystery-of-colombian-culture',
-      permanent: true,
-    },
+      /* tags to categories */
+      {
+        source: '/tag/:slug',
+        destination: '/blog/category/:slug',
+        permanent: true,
+      },
 
-    /* legacy my purchase urls */
-    {
-      source: '/mypurchases/:id/colombian-spanish-ebook-kindle',
-      destination: `${CF_DOMAIN}/download-ebook-kindle?subscriberId=:id`,
-      permanent: false,
-    },
-    {
-      source: '/mypurchases/:id/colombian-spanish-ebook-epub',
-      destination: `${CF_DOMAIN}/download-ebook-epub?subscriberId=:id`,
-      permanent: false,
-    },
-    {
-      source: '/mypurchases/:id/colombian-spanish-ebook-pdf',
-      destination: `${CF_DOMAIN}/download-ebook-pdf?subscriberId=:id`,
-      permanent: false,
-    },
-    {
-      source: '/mypurchases/:id/colombian-spanish-flashcards',
-      destination: `${CF_DOMAIN}/download-flashcards?subscriberId=:id`,
-      permanent: false,
-    },
-  ],
-})
+      /* old product urls */
+      {
+        source: '/ebook',
+        destination: '/course',
+        permanent: true,
+      },
+      {
+        source: '/videocourse',
+        destination: 'https://course.colombianspanish.co/p/conversational-spanish-for-colombia',
+        permanent: true,
+      },
+      {
+        source: '/studykit',
+        destination: 'https://gum.co/colombianspanishstudykit',
+        permanent: true,
+      },
+
+      /* old blog post urls */
+      {
+        source: '/review-spanish-learning-apps-websites',
+        destination: '/blog/best-online-spanish-courses-apps',
+        permanent: true,
+      },
+      {
+        source: '/review-online-spanish-courses-apps',
+        destination: '/blog/best-online-spanish-courses-apps',
+        permanent: true,
+      },
+      {
+        source: '/revealed-the-best-place-to-study-spanish-in-colombia',
+        destination: '/blog/best-place-to-study-spanish-in-colombia',
+        permanent: true,
+      },
+      {
+        source: '/activities-practice-spanish-envigado',
+        destination: '/blog/practice-spanish-envigado',
+        permanent: true,
+      },
+      {
+        source: '/colombian-culture',
+        destination: '/blog/perplexing-mystery-of-colombian-culture',
+        permanent: true,
+      },
+
+      /* legacy my purchase urls */
+      {
+        source: '/mypurchases/:id/colombian-spanish-ebook-kindle',
+        destination: `${CF_DOMAIN}/download-ebook-kindle?subscriberId=:id`,
+        permanent: false,
+      },
+      {
+        source: '/mypurchases/:id/colombian-spanish-ebook-epub',
+        destination: `${CF_DOMAIN}/download-ebook-epub?subscriberId=:id`,
+        permanent: false,
+      },
+      {
+        source: '/mypurchases/:id/colombian-spanish-ebook-pdf',
+        destination: `${CF_DOMAIN}/download-ebook-pdf?subscriberId=:id`,
+        permanent: false,
+      },
+      {
+        source: '/mypurchases/:id/colombian-spanish-flashcards',
+        destination: `${CF_DOMAIN}/download-flashcards?subscriberId=:id`,
+        permanent: false,
+      },
+    ],
+  })
+)
