@@ -33,7 +33,29 @@ const PostCard = ({ post, size, spacing, className = '' }: Props) => {
         className={`${sizeClasses} ${spaceClasses} hover:bg-gray-100 pb-8 pt-10 lg:py-5 border-t md:border-t-0 ${className}`}
       >
         <div className="bg-center bg-cover h-40 rounded-md relative">
-          <NextImage src={image} layout="fill" className="object-cover object-center" />
+          {/* The images display differently enough on different sizes that we can't handle it 
+          with next.js image component alone, we need media queries too. */}
+          <div className="block md:hidden">
+            <NextImage src={image} layout="fill" className="object-cover object-center" />
+          </div>
+          <div className="hidden md:block lg:hidden">
+            <NextImage
+              src={image}
+              layout="responsive"
+              width="248"
+              height="160"
+              className="object-cover object-center"
+            />
+          </div>
+          <div className="hidden lg:block">
+            <NextImage
+              src={image}
+              layout="fixed"
+              width="344"
+              height="160"
+              className="object-cover object-center"
+            />
+          </div>
         </div>
         <h3 className="font-bold pt-6 pb-4 text-xl text-gray-800">{title}</h3>
         <div className="text-gray-600 excerpt" dangerouslySetInnerHTML={{ __html: excerpt }} />
