@@ -67,7 +67,6 @@ const ColombianSpanishApp = ({ Component, pageProps }: AppProps) => {
         <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
         <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
         <link rel="shortcut icon" href="/favicon.ico" />
-        <script src="//widget.manychat.com/930231583655266.js" async />
 
         {/* facebook app id */}
         <meta property="fb:app_id" content="1811401369083538" />
