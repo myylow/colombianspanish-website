@@ -44,9 +44,11 @@ const Index: NextPage<Props> = ({ posts }: Props) => {
               you need to know to get the most out of your time in Colombia.
             </div>
             <Link href="/course">
-              <Button size="xl" bgColor="red">
-                Learn More
-              </Button>
+              <a>
+                <Button size="xl" bgColor="red">
+                  Learn More
+                </Button>
+              </a>
             </Link>
           </div>
         </section>

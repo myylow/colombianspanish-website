@@ -20,6 +20,13 @@ const GeneralHeader = ({ buttonColor = 'red', openMobileMenu = () => {} }: Props
   const [isSearchBoxVisible, setIsSearchBoxVisible] = useState(false)
   const searchBoxRef = useRef<HTMLInputElement | null>(null)
 
+  // Popup is not needed SSR and causes hydration warnings
+  // So we can just enable on CSR
+  const [isPopupEnabled, setIsPopupEnabled] = useState(false)
+  useEffect(() => {
+    setIsPopupEnabled(true)
+  }, [])
+
   // Add focus to search box once it becomes visible
   useEffect(() => {
     if (!isSearchBoxVisible) return
@@ -52,38 +59,40 @@ const GeneralHeader = ({ buttonColor = 'red', openMobileMenu = () => {} }: Props
         </div>
 
         <div className="lg:hidden">
-          <Popup
-            overlayStyle={{ background: 'rgba(0, 0, 0, 0.9)' }}
-            contentStyle={{ width: '90%', maxWidth: '350px', borderRadius: '8px' }}
-            trigger={
-              <i onClick={openMobileMenu} className="material-icons text-3xl text-gray-600 ">
-                menu
-              </i>
-            }
-            modal={true}
-          >
-            <aside className="p-6 md:p-8">
-              <section className="text-center">
-                <header className="text-red-600 uppercase font-semibold text-lg px-12 mb-2">
-                  Colombian Spanish Video Course
-                </header>
-                <div className="text-gray-600">
-                  Our six week course on how to speak Spanish like a native Colombian
-                </div>
-                <Link href="/course">
-                  <Button bgColor="red" size="lg" className="mt-4">
-                    Learn More
-                  </Button>
-                </Link>
-              </section>
-              <section className="mt-8 pt-8 text-center text-gray-600 uppercase font-semibold border-t border-gray-300">
-                <div className="mb-2">Site Search</div>
-                <form action="/search">
-                  <Input type="text" name="q" size="lg" placeholder="Search" />
-                </form>
-              </section>
-            </aside>
-          </Popup>
+          {isPopupEnabled && (
+            <Popup
+              overlayStyle={{ background: 'rgba(0, 0, 0, 0.9)' }}
+              contentStyle={{ width: '90%', maxWidth: '350px', borderRadius: '8px' }}
+              trigger={
+                <i onClick={openMobileMenu} className="material-icons text-3xl text-gray-600 ">
+                  menu
+                </i>
+              }
+              modal={true}
+            >
+              <aside className="p-6 md:p-8">
+                <section className="text-center">
+                  <header className="text-red-600 uppercase font-semibold text-lg px-12 mb-2">
+                    Colombian Spanish Video Course
+                  </header>
+                  <div className="text-gray-600">
+                    Our six week course on how to speak Spanish like a native Colombian
+                  </div>
+                  <Link href="/course">
+                    <Button bgColor="red" size="lg" className="mt-4">
+                      Learn More
+                    </Button>
+                  </Link>
+                </section>
+                <section className="mt-8 pt-8 text-center text-gray-600 uppercase font-semibold border-t border-gray-300">
+                  <div className="mb-2">Site Search</div>
+                  <form action="/search">
+                    <Input type="text" name="q" size="lg" placeholder="Search" />
+                  </form>
+                </section>
+              </aside>
+            </Popup>
+          )}
         </div>
 
         <div className="hidden lg:flex ">
