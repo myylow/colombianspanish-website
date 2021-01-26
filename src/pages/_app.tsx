@@ -56,9 +56,9 @@ const ColombianSpanishApp = ({ Component, pageProps }: AppProps) => {
           sizes="152x152"
           href="apple-touch-icon-152x152.png"
         />
-        <link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
-        <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/png" href="favicon-128.png" sizes="128x128" />
+        <link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196" />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/png" href="/favicon-128.png" sizes="128x128" />
         <meta name="application-name" content="&nbsp;" />
         <meta name="msapplication-TileColor" content="#FFFFFF" />
         <meta name="msapplication-TileImage" content="mstile-144x144.png" />
