@@ -1,6 +1,6 @@
 import { PostWithEmbeddedDataResponse } from './responses/post-response'
 import * as he from 'he'
-import sampleSize from 'lodash/sampleSize'
+import sampleSize from 'lodash.samplesize'
 import fetchPosts, { PostSummary } from './fetch-posts'
 
 interface PostImage {
