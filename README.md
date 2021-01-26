@@ -1,6 +1,6 @@
 # Colombian Spanish website
 
-This is the code of the colombianspanish.co website, a combination blog and marketing site for our Colombian Spanish course. It's written using Next.js v10, React 17 and Typescript. The blog content is hosted on WordPress.com, and we include it here using the WordPress REST API. 
+This is the code of the [colombianspanish.co](https://colombianspanish.co) website, a combination blog and marketing site for our Colombian Spanish course. It's written using Next.js v10, React 17 and Typescript. The blog content is hosted on WordPress.com, and we include it here using the WordPress REST API. 
 
 ## Performance
 
