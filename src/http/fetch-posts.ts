@@ -1,3 +1,4 @@
+import queryString from 'query-string'
 import * as he from 'he'
 import { PostResponse } from './responses/post-response'
 
@@ -17,7 +18,11 @@ const fetchPosts = async ({ categories = [], searchTerm = '' }: Options = {}): P
   PostSummary[]
 > => {
   const categoriesText = categories.join(',')
-  const url = `${process.env.WORDPRESS_ENDPOINT}/posts?per_page=50&categories=${categoriesText}&search=${searchTerm}`
+  const qs = queryString.stringify(
+    { categories: categoriesText, search: searchTerm, per_page: 50 },
+    { skipEmptyString: true, skipNull: true }
+  )
+  const url = `${process.env.WORDPRESS_ENDPOINT}/posts?${qs}`
   const response = await fetch(url)
   const rawPosts = (await response.json()) as PostResponse[]
 
