@@ -11,6 +11,7 @@ import '../css/legacy/readers-faq.css'
 import '../css/legacy/article-inline-images.css'
 import { useEffect } from 'react'
 import Link from 'next/link'
+import CookieConsent from '../shared-components/cookie-consent'
 
 const ColombianSpanishApp = ({ Component, pageProps }: AppProps) => {
   // Add Google Tag Manager
@@ -94,6 +95,8 @@ const ColombianSpanishApp = ({ Component, pageProps }: AppProps) => {
           {/* content of child page */}
           <Component {...pageProps} />
         </div>
+
+        <CookieConsent />
 
         {/* site footer  */}
         <footer className="container flex flex-col lg:flex-row lg:items-center justify-between py-8 text-gray-600">
