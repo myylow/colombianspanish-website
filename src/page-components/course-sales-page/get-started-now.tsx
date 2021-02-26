@@ -88,7 +88,7 @@ const GetStartedNow = () => {
           <div className="flex items-end justify-center mt-8 md:mt-0">
             <Price price={39} />
             <a
-              href="https://gum.co/colombianspanishstudykit?wanted=true"
+              href="https://gum.co/colombianspanishstudykit2?wanted=true"
               className="no-gumroad ml-8"
               data-gumroad-single-product="true"
             >

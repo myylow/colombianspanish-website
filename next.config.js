@@ -109,7 +109,7 @@ module.exports = withMDX(
       },
       {
         source: '/studykit',
-        destination: 'https://gum.co/colombianspanishstudykit',
+        destination: 'https://gum.co/colombianspanishstudykit2',
         permanent: true,
       },
 
