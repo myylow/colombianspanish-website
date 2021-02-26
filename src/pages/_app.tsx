@@ -87,10 +87,6 @@ const ColombianSpanishApp = ({ Component, pageProps }: AppProps) => {
 
         {/* send the referrer  */}
         <meta name="referrer" content="unsafe-url" />
-
-        {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZX7NJQ20G"></script>
-        <script></script>
       </Head>
 
       <div className="flex flex-col min-h-screen">
